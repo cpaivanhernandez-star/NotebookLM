@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>México Briefing — 14 julio 2026</title>
+<style>
+/* ─── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --bg:         #0B1829;
+  --surface:    #132035;
+  --surface2:   #1A2D45;
+  --border:     rgba(255,255,255,0.08);
+  --border2:    rgba(255,255,255,0.14);
+  --text:       #E8E4DC;
+  --text-dim:   #8A9BB0;
+  --text-faint: #4D6075;
+  --jade:       #00B09B;
+  --jade-dim:   rgba(0,176,155,0.15);
+  --up:         #2FC87A;
+  --up-dim:     rgba(47,200,122,0.12);
+  --dn:         #D63230;
+  --dn-dim:     rgba(214,50,48,0.12);
+  --gold:       #E8A838;
+  --gold-dim:   rgba(232,168,56,0.12);
+  --masthead-bg:#071018;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:         #F5F2EE;
+    --surface:    #FFFFFF;
+    --surface2:   #EEE9E1;
+    --border:     rgba(0,0,0,0.07);
+    --border2:    rgba(0,0,0,0.12);
+    --text:       #1A2535;
+    --text-dim:   #556070;
+    --text-faint: #9AABB8;
+    --jade:       #008878;
+    --jade-dim:   rgba(0,136,120,0.1);
+    --up:         #1A9956;
+    --up-dim:     rgba(26,153,86,0.08);
+    --dn:         #C02020;
+    --dn-dim:     rgba(192,32,32,0.08);
+    --gold:       #B07820;
+    --gold-dim:   rgba(176,120,32,0.1);
+    --masthead-bg:#0B1829;
+  }
+}
+:root[data-theme="light"] {
+  --bg:         #F5F2EE;
+  --surface:    #FFFFFF;
+  --surface2:   #EEE9E1;
+  --border:     rgba(0,0,0,0.07);
+  --border2:    rgba(0,0,0,0.12);
+  --text:       #1A2535;
+  --text-dim:   #556070;
+  --text-faint: #9AABB8;
+  --jade:       #008878;
+  --jade-dim:   rgba(0,136,120,0.1);
+  --up:         #1A9956;
+  --up-dim:     rgba(26,153,86,0.08);
+  --dn:         #C02020;
+  --dn-dim:     rgba(192,32,32,0.08);
+  --gold:       #B07820;
+  --gold-dim:   rgba(176,120,32,0.1);
+  --masthead-bg:#0B1829;
+}
+:root[data-theme="dark"] {
+  --bg:         #0B1829;
+  --surface:    #132035;
+  --surface2:   #1A2D45;
+  --border:     rgba(255,255,255,0.08);
+  --border2:    rgba(255,255,255,0.14);
+  --text:       #E8E4DC;
+  --text-dim:   #8A9BB0;
+  --text-faint: #4D6075;
+  --jade:       #00B09B;
+  --jade-dim:   rgba(0,176,155,0.15);
+  --up:         #2FC87A;
+  --up-dim:     rgba(47,200,122,0.12);
+  --dn:         #D63230;
+  --dn-dim:     rgba(214,50,48,0.12);
+  --gold:       #E8A838;
+  --gold-dim:   rgba(232,168,56,0.12);
+  --masthead-bg:#071018;
+}
+
+/* ─── RESET ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── PAGE ───────────────────────────────────────────────── */
+@page { size: A4; margin: 0; }
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 11px;
+  line-height: 1.5;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 0;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  overflow: hidden;
+}
+
+/* ─── MASTHEAD ───────────────────────────────────────────── */
+.masthead {
+  background: var(--masthead-bg);
+  border-bottom: 2px solid var(--jade);
+  padding: 0;
+}
+.masthead-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 8px;
+  border-bottom: 1px solid var(--border);
+}
+.masthead-brand {
+  display: flex;
+  flex-direction: column;
+}
+.brand-eyebrow {
+  font-size: 7.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--jade);
+  font-weight: 700;
+}
+.brand-name {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  margin-top: 2px;
+}
+.brand-name span { color: var(--jade); }
+.masthead-meta {
+  text-align: right;
+  color: var(--text-dim);
+}
+.masthead-date {
+  font-size: 8.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 3px;
+}
+.masthead-sub {
+  font-size: 7.5px;
+  color: var(--text-faint);
+  letter-spacing: 0.5px;
+}
+
+/* TICKER BAR */
+.ticker-bar {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  gap: 24px;
+  overflow: hidden;
+  background: var(--surface);
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ticker-label {
+  font-size: 7.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.ticker-val {
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+.ticker-chg {
+  font-size: 9.5px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.up   { color: var(--up); }
+.dn   { color: var(--dn); }
+.flat { color: var(--text-dim); }
+
+/* ─── SECTION LABEL ──────────────────────────────────────── */
+.section-label {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--jade);
+  border-bottom: 1px solid var(--border2);
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+/* ─── MAIN BODY ──────────────────────────────────────────── */
+.body {
+  padding: 16px 20px 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ─── GRID LAYOUTS ───────────────────────────────────────── */
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
+.grid-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: 12px; }
+
+/* ─── MARKET TABLE ───────────────────────────────────────── */
+.market-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.market-card-header {
+  padding: 7px 10px 5px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.market-card-title {
+  font-size: 7px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+.market-card-time {
+  font-size: 7px;
+  color: var(--text-faint);
+}
+.market-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.market-table th {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 5px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.market-table th:not(:first-child) { text-align: right; }
+.market-table td {
+  padding: 5px 10px;
+  font-size: 10.5px;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.3;
+}
+.market-table tr:last-child td { border-bottom: none; }
+.market-table td:not(:first-child) { text-align: right; }
+.t-name { color: var(--text); font-weight: 700; font-size: 10px; }
+.t-desc { font-size: 8px; color: var(--text-faint); display: block; }
+.t-val  { color: var(--text); font-weight: 700; }
+.t-chg  { font-size: 10px; font-weight: 700; }
+.t-sub  { font-size: 8px; color: var(--text-faint); }
+
+/* ─── FX BIG CARDS ───────────────────────────────────────── */
+.fx-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+.fx-card-pair {
+  font-size: 7.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 2px;
+}
+.fx-card-rate {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.fx-card-rate .currency { font-size: 11px; color: var(--text-dim); margin-right: 2px; }
+.fx-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+.fx-card-chg { font-size: 10px; font-weight: 700; }
+.fx-card-label { font-size: 7.5px; color: var(--text-faint); }
+
+/* ─── COMMODITY CARD ─────────────────────────────────────── */
+.comm-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.comm-item:last-child { border-bottom: none; }
+.comm-name { font-size: 10px; font-weight: 700; color: var(--text); }
+.comm-unit { font-size: 7.5px; color: var(--text-faint); display: block; }
+.comm-right { text-align: right; }
+.comm-price { font-size: 10.5px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--text); }
+.comm-chg   { font-size: 9px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ─── STAT TILE ──────────────────────────────────────────── */
+.stat-tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 9px 11px;
+}
+.stat-label { font-size: 7.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 4px; }
+.stat-value { font-family: Georgia, serif; font-size: 20px; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; line-height: 1; }
+.stat-value .stat-unit { font-size: 10px; color: var(--text-dim); font-family: monospace; }
+.stat-note  { font-size: 7.5px; color: var(--text-faint); margin-top: 4px; line-height: 1.3; }
+.stat-tile.accent-up   { border-left: 3px solid var(--up); }
+.stat-tile.accent-dn   { border-left: 3px solid var(--dn); }
+.stat-tile.accent-jade { border-left: 3px solid var(--jade); }
+.stat-tile.accent-gold { border-left: 3px solid var(--gold); }
+
+/* ─── NEWS CARDS ─────────────────────────────────────────── */
+.news-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 10px;
+}
+.news-severity {
+  width: 3px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+.sev-red  { background: var(--dn); }
+.sev-gold { background: var(--gold); }
+.sev-jade { background: var(--jade); }
+
+.news-content { flex: 1; min-width: 0; }
+.news-eyebrow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.news-tag {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 1px 5px;
+  border-radius: 2px;
+}
+.tag-red  { background: var(--dn-dim);   color: var(--dn);   }
+.tag-gold { background: var(--gold-dim); color: var(--gold); }
+.tag-jade { background: var(--jade-dim); color: var(--jade); }
+
+.news-time { font-size: 7.5px; color: var(--text-faint); }
+.news-headline {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.35;
+  text-wrap: balance;
+  margin-bottom: 4px;
+}
+.news-body {
+  font-size: 9.5px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.news-impact {
+  font-size: 8px;
+  color: var(--text-faint);
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid var(--border);
+}
+.news-impact strong { color: var(--gold); }
+
+/* ─── ALERT BANNER ───────────────────────────────────────── */
+.alert-banner {
+  background: var(--dn-dim);
+  border: 1px solid rgba(214,50,48,0.3);
+  border-radius: 4px;
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.alert-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--dn);
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+@media print { .alert-dot { animation: none; } }
+.alert-text { font-size: 9.5px; color: var(--text); }
+.alert-text strong { color: var(--dn); }
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 6px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left  { font-size: 7.5px; color: var(--text-faint); }
+.footer-right { font-size: 7.5px; color: var(--text-faint); text-align: right; }
+.footer-page  { font-size: 7.5px; color: var(--jade); font-weight: 700; }
+
+/* ─── MINI CHART (sparkline) ─────────────────────────────── */
+canvas.spark {
+  display: block;
+  width: 100%;
+  height: 28px;
+  margin-top: 4px;
+}
+
+/* ─── DIVIDER ────────────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--  PÁGINA 1                                               -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-top">
+      <div class="masthead-brand">
+        <div class="brand-eyebrow">Diario de mercados</div>
+        <div class="brand-name">México <span>Briefing</span></div>
+      </div>
+      <div class="masthead-meta">
+        <div class="masthead-date">Martes · 14 de julio de 2026</div>
+        <div class="masthead-sub">Indicadores / Mercados / Política · Edición matutina</div>
+        <div class="masthead-sub" style="margin-top:3px; color: var(--jade);">🌍 Bloqueo naval a Irán: alerta geopolítica global</div>
+      </div>
+    </div>
+
+    <!-- TICKER -->
+    <div class="ticker-bar">
+      <div class="ticker-item">
+        <span class="ticker-label">IPC BMV</span>
+        <span class="ticker-val">66,496</span>
+        <span class="ticker-chg flat">→ +0.10%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-label">USD/MXN</span>
+        <span class="ticker-val">17.48</span>
+        <span class="ticker-chg dn">▾ +0.3%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-label">S&amp;P 500</span>
+        <span class="ticker-val">7,515</span>
+        <span class="ticker-chg dn">▾ -0.79%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-label">Nasdaq</span>
+        <span class="ticker-val">25,873</span>
+        <span class="ticker-chg dn">▾ -1.55%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-label">WTI</span>
+        <span class="ticker-val">$98.32</span>
+        <span class="ticker-chg up">▴ +4.1%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-label">Oro</span>
+        <span class="ticker-val">$4,077</span>
+        <span class="ticker-chg up">▴ +1.2%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ALERTA SUPERIOR -->
+    <div class="alert-banner">
+      <div class="alert-dot"></div>
+      <div class="alert-text"><strong>Alerta geopolítica:</strong> Trump anuncia bloqueo naval a Irán — petróleo Brent sube a $112 USD/bbl; bolsas globales cierran en rojo. Impacto directo en costos logísticos y energéticos para México.</div>
+    </div>
+
+    <!-- TIPO DE CAMBIO -->
+    <div>
+      <div class="section-label">Tipo de Cambio</div>
+      <div class="grid3">
+        <div class="fx-card">
+          <div class="fx-card-pair">USD / MXN</div>
+          <div class="fx-card-rate"><span class="currency">$</span>17.4842</div>
+          <div class="fx-card-bottom">
+            <div class="fx-card-chg dn">▾ −0.12 (−0.68%)</div>
+            <div class="fx-card-label">Banxico · 14 jul</div>
+          </div>
+          <canvas class="spark" id="sp-usd"></canvas>
+        </div>
+        <div class="fx-card">
+          <div class="fx-card-pair">EUR / MXN</div>
+          <div class="fx-card-rate"><span class="currency">€</span>20.18</div>
+          <div class="fx-card-bottom">
+            <div class="fx-card-chg up">▴ +0.08 (+0.40%)</div>
+            <div class="fx-card-label">BCE · 14 jul</div>
+          </div>
+          <canvas class="spark" id="sp-eur"></canvas>
+        </div>
+        <div class="fx-card">
+          <div class="fx-card-pair">EUR / USD</div>
+          <div class="fx-card-rate"><span class="currency">$</span>1.1551</div>
+          <div class="fx-card-bottom">
+            <div class="fx-card-chg up">▴ +0.003 (+0.26%)</div>
+            <div class="fx-card-label">BCE · 14 jul</div>
+          </div>
+          <canvas class="spark" id="sp-eurusd"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOLSAS + COMMODITIES -->
+    <div class="grid-1-2">
+
+      <!-- COMMODITIES -->
+      <div>
+        <div class="section-label">Materias Primas</div>
+        <div class="market-card">
+          <div class="market-card-header">
+            <span class="market-card-title">Commodities clave</span>
+            <span class="market-card-time">Cierre 13 jul · CME</span>
+          </div>
+          <table class="market-table">
+            <thead>
+              <tr>
+                <th>Activo</th>
+                <th>Precio</th>
+                <th>Var.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="t-name">Petróleo WTI</span><span class="t-desc">Barril · USD</span></td>
+                <td class="t-val">$98.32</td>
+                <td class="t-chg up">+4.1%</td>
+              </tr>
+              <tr>
+                <td><span class="t-name">Petróleo Brent</span><span class="t-desc">Barril · USD</span></td>
+                <td class="t-val">$112.19</td>
+                <td class="t-chg up">+3.8%</td>
+              </tr>
+              <tr>
+                <td><span class="t-name">Oro</span><span class="t-desc">Troy oz · USD</span></td>
+                <td class="t-val">$4,077</td>
+                <td class="t-chg up">+1.2%</td>
+              </tr>
+              <tr>
+                <td><span class="t-name">Plata</span><span class="t-desc">Troy oz · USD</span></td>
+                <td class="t-val">$58.40</td>
+                <td class="t-chg dn">−2.9%</td>
+              </tr>
+              <tr>
+                <td><span class="t-name">Gas Natural</span><span class="t-desc">MMBtu · USD</span></td>
+                <td class="t-val">$3.24</td>
+                <td class="t-chg up">+1.6%</td>
+              </tr>
+              <tr>
+                <td><span class="t-name">Cobre</span><span class="t-desc">Lb · USD</span></td>
+                <td class="t-val">$4.38</td>
+                <td class="t-chg flat">+0.1%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- BOLSAS -->
+      <div>
+        <div class="section-label">Bolsas de Valores</div>
+        <div class="market-card">
+          <div class="market-card-header">
+            <span class="market-card-title">Índices principales</span>
+            <span class="market-card-time">Cierre 13 jul</span>
+          </div>
+          <table class="market-table">
+            <thead>
+              <tr>
+                <th>Índice</th>
+                <th>Cierre</th>
+                <th>Var. día</th>
+                <th>Var. año</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="t-name">S&amp;P/BMV IPC</span><span class="t-desc">México · BMV</span></td>
+                <td class="t-val">66,496</td>
+                <td class="t-chg flat">−0.10%</td>
+                <td class="t-sub up">+4.2%</td>
+              </tr>
+              <tr>
+                <td><span class="t-name">S&amp;P 500</span><span class="t-desc">EE.UU. · NYSE</span></td>
+                <td class="t-val">7,515</td>
+                <td class="t-chg dn">−0.79%</td>
+                <td class="t-sub up">+11.4%</td>
+              </tr>
+              <tr>
+                <td><span class="t-name">Dow Jones</span><span class="t-desc">EE.UU. · NYSE</span></td>
+                <td class="t-val">52,498</td>
+                <td class="t-chg dn">−0.62%</td>
+                <td class="t-sub up">+8.7%</td>
+              </tr>
+              <tr>
+                <td><span class="t-name">Nasdaq Comp.</span><span class="t-desc">EE.UU. · Nasdaq</span></td>
+                <td class="t-val">25,873</td>
+                <td class="t-chg dn">−1.55%</td>
+                <td class="t-sub up">+14.2%</td>
+              </tr>
+              <tr>
+                <td><span class="t-name">DAX 40</span><span class="t-desc">Alemania · FSE</span></td>
+                <td class="t-val">24,118</td>
+                <td class="t-chg dn">−0.48%</td>
+                <td class="t-sub up">+7.9%</td>
+              </tr>
+              <tr>
+                <td><span class="t-name">Nikkei 225</span><span class="t-desc">Japón · TSE</span></td>
+                <td class="t-val">43,220</td>
+                <td class="t-chg dn">−0.91%</td>
+                <td class="t-sub up">+6.1%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:8px; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:7px 10px;">
+          <div style="font-size:7.5px; color:var(--text-faint); margin-bottom:4px; letter-spacing:1px; text-transform:uppercase;">Mejor / Peor BMV (sesión previa)</div>
+          <div style="display:flex; justify-content:space-between;">
+            <div>
+              <div style="font-size:8px; color:var(--text-faint);">Mejor desempeño</div>
+              <div style="font-size:11px; font-weight:700; color:var(--up);">GMEXICOB <span style="font-size:9px;">+1.10%</span></div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:8px; color:var(--text-faint);">Peor desempeño</div>
+              <div style="font-size:11px; font-weight:700; color:var(--dn);">VOLARA <span style="font-size:9px;">−6.69%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- INDICADORES MACROECONÓMICOS MÉXICO -->
+    <div>
+      <div class="section-label">Indicadores Macroeconómicos · México</div>
+      <div class="grid3">
+        <div class="stat-tile accent-jade">
+          <div class="stat-label">Inflación general jun-26</div>
+          <div class="stat-value">3.37<span class="stat-unit">%</span></div>
+          <div class="stat-note" style="color:var(--jade);">🟢 Semáforo en verde por primera vez desde 2020. Subyacente: 4.03%</div>
+        </div>
+        <div class="stat-tile accent-gold">
+          <div class="stat-label">PIB estimado 2026</div>
+          <div class="stat-value">1.1<span class="stat-unit">%</span></div>
+          <div class="stat-note">Crecimiento insuficiente; PIB per cápita cerca de niveles 2016</div>
+        </div>
+        <div class="stat-tile accent-dn">
+          <div class="stat-label">Tasa Banxico (referencia)</div>
+          <div class="stat-value">8.75<span class="stat-unit">%</span></div>
+          <div class="stat-note">Ciclo de recortes en curso; expectativa fin-2026: 4.23% inflación</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-left">Fuentes: Banxico · BMV · Investing.com · El Financiero · Reforma · México ¿Cómo Vamos? · CNBC · Infobae</div>
+    <div class="footer-page">1 / 2</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--  PÁGINA 2 — NOTICIAS                                    -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="masthead" style="padding: 8px 20px; display:flex; justify-content:space-between; align-items:center; border-bottom: 2px solid var(--jade);">
+    <div style="font-family:Georgia,serif; font-size:14px; font-weight:700; color:#fff;">México Briefing <span style="color:var(--jade)">·</span> Noticias del Día</div>
+    <div style="font-size:8px; color:var(--text-faint); letter-spacing:1px;">MARTES 14 DE JULIO DE 2026</div>
+  </div>
+
+  <div class="body">
+
+    <!-- GEOPOLÍTICA + COMERCIO (mayor peso) -->
+    <div>
+      <div class="section-label">Geopolítica &amp; Comercio Exterior</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+
+        <div class="news-card">
+          <div class="news-severity sev-red"></div>
+          <div class="news-content">
+            <div class="news-eyebrow">
+              <span class="news-tag tag-red">🔴 Urgente · Geopolítica</span>
+              <span class="news-time">Washington — 13 jul 2026</span>
+            </div>
+            <div class="news-headline">Trump anuncia bloqueo naval a Irán: petróleo se dispara y Wall Street cierra en rojo</div>
+            <div class="news-body">El presidente Trump ordenó el reestablecimiento del bloqueo naval a Irán, desencadenando una sesión de ventas en mercados globales. El Nasdaq cedió 1.55%, arrastrado por el desplome de semiconductores (SK Hynix −6%). El petróleo Brent tocó $112 USD/bbl. Para México, el encarecimiento energético representa mayor presión en cadenas logísticas y combustibles industriales.</div>
+            <div class="news-impact"><strong>Impacto MX:</strong> Alza en costos de gasolina, diesel y transporte. Pemex podría beneficiarse en ingresos de exportación a corto plazo.</div>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-severity sev-red"></div>
+          <div class="news-content">
+            <div class="news-eyebrow">
+              <span class="news-tag tag-red">🔴 Crítico · T-MEC</span>
+              <span class="news-time">Ciudad de México — 8 jul 2026</span>
+            </div>
+            <div class="news-headline">EE.UU. no renueva el T-MEC; delegación llega el 20 de julio a negociar reducción arancelaria</div>
+            <div class="news-body">Tras la decisión de EE.UU. de no extender el T-MEC por 16 años adicionales —atribuida por Trump a su visión proteccionista y no a incumplimientos de México—, Sheinbaum confía en una renovación en "4 o 5 años". Un equipo negociador estadounidense visitará México el próximo 20 de julio con el objetivo de revisar la estructura arancelaria bilateral. El tratado permanece vigente hasta 2036 con revisiones anuales.</div>
+            <div class="news-impact"><strong>Impacto MX:</strong> Incertidumbre eleva prima de riesgo; inversión extranjera en modo espera. Toyota ya inició traslado de planta en Tijuana.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- INDUSTRIA + SEGURIDAD -->
+    <div class="grid2">
+
+      <div>
+        <div class="section-label">Industria &amp; Inversión</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div class="news-card">
+            <div class="news-severity sev-gold"></div>
+            <div class="news-content">
+              <div class="news-eyebrow">
+                <span class="news-tag tag-gold">🟡 Industria</span>
+                <span class="news-time">Tijuana</span>
+              </div>
+              <div class="news-headline">Toyota confirma traslado gradual de planta en Tijuana a EE.UU.</div>
+              <div class="news-body">La armadora japonesa inició el proceso de relocalización de su planta tijuanense hacia territorio estadounidense, en respuesta directa a los aranceles del 25% impuestos por la administración Trump. Sheinbaum atribuyó la decisión a los aranceles y no a la revisión del T-MEC. Se estima un impacto de 3,200 empleos directos en Baja California.</div>
+              <div class="news-impact"><strong>Impacto MX:</strong> Señal negativa para el modelo maquilador fronterizo; otros OEM's en observación.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">Seguridad &amp; Política Interior</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div class="news-card">
+            <div class="news-severity sev-red"></div>
+            <div class="news-content">
+              <div class="news-eyebrow">
+                <span class="news-tag tag-red">🔴 Seguridad</span>
+                <span class="news-time">CDMX — 7 jul 2026</span>
+              </div>
+              <div class="news-headline">Sheinbaum exige al FBI transparencia total en el caso El Mayo Zambada</div>
+              <div class="news-body">La presidenta solicitó en conferencia matutina que EE.UU. informe públicamente sobre la detención del líder del Cártel de Sinaloa, Ismael "El Mayo" Zambada, pidiendo además al FBI información precisa sobre las circunstancias del arresto. También hizo un llamado a periodistas en situación de riesgo a acercarse al gobierno para coordinación de protección.</div>
+              <div class="news-impact"><strong>Impacto MX:</strong> Tensión diplomática latente. Mercados atentos a respuesta del Departamento de Estado.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ECONOMÍA + POSITIVO -->
+    <div>
+      <div class="section-label">Economía &amp; Finanzas Públicas</div>
+      <div class="grid2">
+
+        <div class="news-card">
+          <div class="news-severity sev-jade"></div>
+          <div class="news-content">
+            <div class="news-eyebrow">
+              <span class="news-tag tag-jade">🟢 Positivo · Inflación</span>
+              <span class="news-time">México ¿Cómo Vamos? — jul 2026</span>
+            </div>
+            <div class="news-headline">Inflación en semáforo verde por primera vez desde 2020: 3.37% anual en junio</div>
+            <div class="news-body">La inflación general acumuló tres meses a la baja, pasando de 3.94% en mayo a 3.37% en junio. El componente no subyacente se desaceleró de 3.10% a 1.11%, impulsado por menores precios energéticos. La subyacente cayó de 4.19% a 4.03%. Las expectativas para fin de 2026 se ubican en 4.23%.</div>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-severity sev-gold"></div>
+          <div class="news-content">
+            <div class="news-eyebrow">
+              <span class="news-tag tag-gold">🟡 Atención · PIB</span>
+              <span class="news-time">Análisis — jul 2026</span>
+            </div>
+            <div class="news-headline">PIB proyectado en 1.1% para 2026: ritmo insuficiente para recuperar el nivel pre-pandemia</div>
+            <div class="news-body">El crecimiento económico de México para 2026 se mantiene en 1.1% anual, nivel que no alcanza para compensar el rezago del PIB per cápita —actualmente cercano a los niveles de 2016. La pérdida de participación en las importaciones estadounidenses confirma pérdida de competitividad ante la relocalización de inversiones.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RESUMEN EJECUTIVO -->
+    <div style="background:var(--surface2); border:1px solid var(--border2); border-radius:4px; padding:11px 14px;">
+      <div class="section-label" style="margin-bottom:8px;">Resumen Ejecutivo — Puntos a vigilar hoy</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 20px;">
+        <div style="font-size:9.5px; color:var(--text-dim); padding-left:12px; position:relative; line-height:1.5;">
+          <span style="position:absolute;left:0;color:var(--dn);">▸</span>
+          <strong style="color:var(--text);">Petróleo:</strong> Seguimiento a escalada Irán-EE.UU. Brent sobre $110 podría presionar inflación energética en Q3.
+        </div>
+        <div style="font-size:9.5px; color:var(--text-dim); padding-left:12px; position:relative; line-height:1.5;">
+          <span style="position:absolute;left:0;color:var(--dn);">▸</span>
+          <strong style="color:var(--text);">T-MEC:</strong> Negociación del 20 de julio es el evento macro más relevante de la quincena para el peso.
+        </div>
+        <div style="font-size:9.5px; color:var(--text-dim); padding-left:12px; position:relative; line-height:1.5;">
+          <span style="position:absolute;left:0;color:var(--jade);">▸</span>
+          <strong style="color:var(--text);">Inflación:</strong> Datos de EE.UU. de junio 2026 se publican hoy; relevantes para postura Fed y tipo de cambio.
+        </div>
+        <div style="font-size:9.5px; color:var(--text-dim); padding-left:12px; position:relative; line-height:1.5;">
+          <span style="position:absolute;left:0;color:var(--gold);">▸</span>
+          <strong style="color:var(--text);">Banxico:</strong> Con inflación en verde, siguiente reunión podría consolidar recorte adicional de 25pb.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-left">Fuentes: Infobae MX · El Universal · Expansión · Reforma · La Jornada · Excélsior · México ¿Cómo Vamos? · CNBC · Investing.com · ABC Color PY</div>
+    <div class="footer-right">
+      <span class="footer-page">2 / 2</span>
+      <span style="margin-left:8px; color:var(--text-faint);">Datos de cierre 13 jul · Indicadores 14 jul · Solo referencia</span>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Micro-sparklines via Canvas */
+function drawSpark(id, data, color) {
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.offsetWidth;
+  const h = 28;
+  canvas.width  = w * dpr;
+  canvas.height = h * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const mn = Math.min(...data), mx = Math.max(...data);
+  const range = mx - mn || 1;
+  const pts = data.map((v, i) => ({
+    x: (i / (data.length - 1)) * w,
+    y: h - ((v - mn) / range) * (h - 4) - 2
+  }));
+
+  // area fill
+  const grad = ctx.createLinearGradient(0, 0, 0, h);
+  grad.addColorStop(0, color + '40');
+  grad.addColorStop(1, color + '00');
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, h);
+  pts.forEach(p => ctx.lineTo(p.x, p.y));
+  ctx.lineTo(pts[pts.length-1].x, h);
+  ctx.closePath();
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // line
+  ctx.beginPath();
+  pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  // end dot
+  const last = pts[pts.length - 1];
+  ctx.beginPath();
+  ctx.arc(last.x, last.y, 2.5, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+}
+
+window.addEventListener('load', () => {
+  const upC  = getComputedStyle(document.documentElement).getPropertyValue('--up').trim()  || '#2FC87A';
+  const dnC  = getComputedStyle(document.documentElement).getPropertyValue('--dn').trim()  || '#D63230';
+  const jdC  = getComputedStyle(document.documentElement).getPropertyValue('--jade').trim()|| '#00B09B';
+
+  // Simulated 10-day series — realistic shapes
+  drawSpark('sp-usd',   [17.32,17.40,17.55,17.38,17.60,17.72,17.65,17.50,17.60,17.48], dnC);
+  drawSpark('sp-eur',   [20.00,20.08,20.15,20.02,20.22,20.30,20.18,20.10,20.14,20.18], upC);
+  drawSpark('sp-eurusd',[1.148,1.149,1.151,1.150,1.153,1.156,1.154,1.152,1.154,1.155], jdC);
+});
+</script>
+</body>
+</html>
