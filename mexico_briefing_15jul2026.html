@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>México Briefing — 15 julio 2026</title>
+<style>
+/* ─── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --bg:          #09131F;
+  --surface:     #101E2E;
+  --surface2:    #172840;
+  --surface3:    #1D3050;
+  --border:      rgba(255,255,255,0.07);
+  --border2:     rgba(255,255,255,0.13);
+  --text:        #DDE4EE;
+  --text-dim:    #7A8FA8;
+  --text-faint:  #3E5268;
+  --jade:        #00B4A0;
+  --jade-dim:    rgba(0,180,160,0.14);
+  --up:          #29C87A;
+  --up-dim:      rgba(41,200,122,0.11);
+  --dn:          #E03530;
+  --dn-dim:      rgba(224,53,48,0.12);
+  --gold:        #E9A830;
+  --gold-dim:    rgba(233,168,48,0.12);
+  --masthead:    #050E18;
+  --accent-line: var(--jade);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:          #EFF2F6;
+    --surface:     #FFFFFF;
+    --surface2:    #E5EAF2;
+    --surface3:    #D8DFE9;
+    --border:      rgba(0,0,0,0.07);
+    --border2:     rgba(0,0,0,0.13);
+    --text:        #0D1E30;
+    --text-dim:    #4A5F76;
+    --text-faint:  #94A8BC;
+    --jade:        #007A6E;
+    --jade-dim:    rgba(0,122,110,0.09);
+    --up:          #167A48;
+    --up-dim:      rgba(22,122,72,0.08);
+    --dn:          #BE2020;
+    --dn-dim:      rgba(190,32,32,0.08);
+    --gold:        #9A6C10;
+    --gold-dim:    rgba(154,108,16,0.09);
+    --masthead:    #050E18;
+  }
+}
+:root[data-theme="light"] {
+  --bg:          #EFF2F6;
+  --surface:     #FFFFFF;
+  --surface2:    #E5EAF2;
+  --surface3:    #D8DFE9;
+  --border:      rgba(0,0,0,0.07);
+  --border2:     rgba(0,0,0,0.13);
+  --text:        #0D1E30;
+  --text-dim:    #4A5F76;
+  --text-faint:  #94A8BC;
+  --jade:        #007A6E;
+  --jade-dim:    rgba(0,122,110,0.09);
+  --up:          #167A48;
+  --up-dim:      rgba(22,122,72,0.08);
+  --dn:          #BE2020;
+  --dn-dim:      rgba(190,32,32,0.08);
+  --gold:        #9A6C10;
+  --gold-dim:    rgba(154,108,16,0.09);
+  --masthead:    #050E18;
+}
+:root[data-theme="dark"] {
+  --bg:          #09131F;
+  --surface:     #101E2E;
+  --surface2:    #172840;
+  --surface3:    #1D3050;
+  --border:      rgba(255,255,255,0.07);
+  --border2:     rgba(255,255,255,0.13);
+  --text:        #DDE4EE;
+  --text-dim:    #7A8FA8;
+  --text-faint:  #3E5268;
+  --jade:        #00B4A0;
+  --jade-dim:    rgba(0,180,160,0.14);
+  --up:          #29C87A;
+  --up-dim:      rgba(41,200,122,0.11);
+  --dn:          #E03530;
+  --dn-dim:      rgba(224,53,48,0.12);
+  --gold:        #E9A830;
+  --gold-dim:    rgba(233,168,48,0.12);
+  --masthead:    #050E18;
+}
+
+/* ─── RESET + BASE ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@page { size: A4; margin: 0; }
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 11px;
+  line-height: 1.5;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+/* ─── PAGE ───────────────────────────────────────────────── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  overflow: hidden;
+}
+
+/* ─── MASTHEAD ───────────────────────────────────────────── */
+.masthead {
+  background: var(--masthead);
+  border-bottom: 2px solid var(--jade);
+}
+.masthead-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 11px 20px 9px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.brand { display: flex; flex-direction: column; }
+.brand-kicker {
+  font-size: 7px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--jade);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.brand-name {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+.brand-name em { color: var(--jade); font-style: normal; }
+.masthead-right { text-align: right; }
+.masthead-date {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+}
+.masthead-edition {
+  font-size: 7.5px;
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+.masthead-lead {
+  font-size: 8.5px;
+  color: var(--gold);
+  margin-top: 4px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* TICKER */
+.ticker {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--surface);
+  overflow: hidden;
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px 5px 12px;
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.t-lbl { font-size: 7px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-faint); }
+.t-val { font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--text); }
+.t-chg { font-size: 9px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.up   { color: var(--up); }
+.dn   { color: var(--dn); }
+.flat { color: var(--text-dim); }
+
+/* ─── BODY ───────────────────────────────────────────────── */
+.body {
+  padding: 15px 20px 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+/* ─── SECTION LABEL ──────────────────────────────────────── */
+.slabel {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--jade);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border2);
+  margin-bottom: 9px;
+}
+
+/* ─── GRIDS ──────────────────────────────────────────────── */
+.g2   { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+.g3   { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 11px; }
+.g4   { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
+.g21  { display: grid; grid-template-columns: 2fr 1fr; gap: 11px; }
+.g12  { display: grid; grid-template-columns: 1fr 2fr; gap: 11px; }
+.gcol { display: flex; flex-direction: column; gap: 11px; }
+
+/* ─── FX CARDS ───────────────────────────────────────────── */
+.fx {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 9px 11px 8px;
+}
+.fx-pair {
+  font-size: 7px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 3px;
+}
+.fx-rate {
+  font-family: Georgia, serif;
+  font-size: 21px; font-weight: 700;
+  color: var(--text); font-variant-numeric: tabular-nums;
+  line-height: 1; letter-spacing: -0.5px;
+}
+.fx-ccy { font-size: 11px; color: var(--text-dim); font-family: monospace; margin-right: 1px; }
+.fx-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 5px;
+}
+.fx-chg { font-size: 9.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.fx-src  { font-size: 7px; color: var(--text-faint); }
+canvas.spark {
+  display: block; width: 100%; height: 26px; margin-top: 5px;
+}
+
+/* ─── DATA TABLE ─────────────────────────────────────────── */
+.dtable-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.dtable-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 6px 10px 5px;
+  border-bottom: 1px solid var(--border);
+}
+.dtable-title { font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); font-weight: 700; }
+.dtable-when  { font-size: 7px; color: var(--text-faint); }
+table.dt { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+table.dt th {
+  font-size: 7px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+  color: var(--text-faint); padding: 5px 10px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+table.dt th:not(:first-child) { text-align: right; }
+table.dt td {
+  padding: 5px 10px; font-size: 10.5px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+table.dt tr:last-child td { border-bottom: none; }
+table.dt td:not(:first-child) { text-align: right; }
+.dn-name  { font-size: 10px; font-weight: 700; color: var(--text); display: block; }
+.dn-sub   { font-size: 7.5px; color: var(--text-faint); }
+.dval     { font-weight: 700; color: var(--text); }
+.dchg     { font-size: 10px; font-weight: 700; }
+.dsub     { font-size: 8px; color: var(--text-faint); }
+
+/* ─── STAT TILES ─────────────────────────────────────────── */
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 9px 11px;
+}
+.stat.up   { border-left: 3px solid var(--up); }
+.stat.dn   { border-left: 3px solid var(--dn); }
+.stat.jade { border-left: 3px solid var(--jade); }
+.stat.gold { border-left: 3px solid var(--gold); }
+.stat-lbl  { font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 4px; }
+.stat-val  {
+  font-family: Georgia, serif; font-size: 22px; font-weight: 700;
+  color: var(--text); font-variant-numeric: tabular-nums; line-height: 1;
+}
+.stat-unit { font-size: 10px; color: var(--text-dim); font-family: monospace; }
+.stat-note { font-size: 7.5px; color: var(--text-faint); margin-top: 4px; line-height: 1.4; }
+
+/* ─── NEWS CARDS ─────────────────────────────────────────── */
+.news {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 9px 11px;
+  display: flex;
+  gap: 9px;
+}
+.news-bar { width: 3px; border-radius: 2px; flex-shrink: 0; align-self: stretch; }
+.bar-red  { background: var(--dn); }
+.bar-jade { background: var(--jade); }
+.bar-gold { background: var(--gold); }
+.news-inner { flex: 1; min-width: 0; }
+.news-eye {
+  display: flex; align-items: center; gap: 7px; margin-bottom: 4px;
+}
+.ntag {
+  font-size: 6.5px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 1px 5px; border-radius: 2px;
+}
+.ntag-red  { background: var(--dn-dim);   color: var(--dn);   }
+.ntag-jade { background: var(--jade-dim); color: var(--jade); }
+.ntag-gold { background: var(--gold-dim); color: var(--gold); }
+.ntime { font-size: 7.5px; color: var(--text-faint); }
+.nhead {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 11.5px; font-weight: 700;
+  color: var(--text); line-height: 1.35;
+  text-wrap: balance; margin-bottom: 4px;
+}
+.nbody { font-size: 9px; color: var(--text-dim); line-height: 1.55; }
+.nimpact {
+  font-size: 7.5px; color: var(--text-faint);
+  margin-top: 5px; padding-top: 5px;
+  border-top: 1px solid var(--border);
+  line-height: 1.4;
+}
+.nimpact strong { color: var(--gold); }
+
+/* ─── ALERT STRIP ────────────────────────────────────────── */
+.alert-strip {
+  display: flex; align-items: center; gap: 9px;
+  background: var(--dn-dim);
+  border: 1px solid rgba(224,53,48,0.25);
+  border-radius: 3px;
+  padding: 6px 11px;
+}
+.alert-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--dn); flex-shrink: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .alert-dot { animation: blink 2s ease-in-out infinite; }
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+@media print { .alert-dot { animation: none; } }
+.alert-text { font-size: 9px; color: var(--text); line-height: 1.4; }
+.alert-text strong { color: var(--dn); }
+
+/* ─── POSITIVE STRIP ─────────────────────────────────────── */
+.ok-strip {
+  display: flex; align-items: center; gap: 9px;
+  background: var(--up-dim);
+  border: 1px solid rgba(41,200,122,0.2);
+  border-radius: 3px;
+  padding: 6px 11px;
+}
+.ok-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--up); flex-shrink: 0; }
+.ok-text { font-size: 9px; color: var(--text); line-height: 1.4; }
+.ok-text strong { color: var(--up); }
+
+/* ─── MINI KPI ROW ───────────────────────────────────────── */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.kpi {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 8px 9px;
+}
+.kpi-lbl { font-size: 7px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 3px; }
+.kpi-val { font-size: 13px; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.kpi-val .kpi-unit { font-size: 8px; color: var(--text-dim); }
+.kpi-note { font-size: 7.5px; color: var(--text-faint); margin-top: 3px; line-height: 1.3; }
+.kpi.up   { border-top: 2px solid var(--up); }
+.kpi.jade { border-top: 2px solid var(--jade); }
+.kpi.gold { border-top: 2px solid var(--gold); }
+
+/* ─── BMV HIGHLIGHTS ─────────────────────────────────────── */
+.bmv-highlights {
+  display: flex; justify-content: space-between;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 7px 11px;
+  margin-top: 8px;
+  gap: 10px;
+}
+.bmv-hl { text-align: center; flex: 1; }
+.bmv-hl-lbl { font-size: 7px; color: var(--text-faint); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
+.bmv-hl-val { font-size: 10.5px; font-weight: 700; }
+.bmv-hl-sub { font-size: 7.5px; color: var(--text-faint); }
+.bmv-div { width: 1px; background: var(--border2); }
+
+/* ─── WATCH BOX ──────────────────────────────────────────── */
+.watch-box {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 3px;
+  padding: 10px 13px;
+}
+.watch-items { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 18px; }
+.watch-item {
+  font-size: 9px; color: var(--text-dim);
+  padding-left: 11px; position: relative; line-height: 1.5;
+}
+.watch-item::before { content: '▸'; position: absolute; left: 0; color: var(--jade); font-size: 8px; }
+.watch-item strong { color: var(--text); }
+
+/* ─── PAGE FOOTER ────────────────────────────────────────── */
+.pfooter {
+  border-top: 1px solid var(--border);
+  padding: 6px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pfooter-src  { font-size: 7px; color: var(--text-faint); }
+.pfooter-page { font-size: 7.5px; color: var(--jade); font-weight: 700; }
+
+/* ─── PAGE 2 HEADER ──────────────────────────────────────── */
+.pg2-head {
+  background: var(--masthead);
+  border-bottom: 2px solid var(--jade);
+  padding: 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pg2-brand {
+  font-family: Georgia, serif; font-size: 13px; font-weight: 700; color: #fff;
+}
+.pg2-brand span { color: var(--jade); }
+.pg2-date { font-size: 7.5px; color: var(--text-faint); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     PÁGINA 1 — MERCADOS E INDICADORES
+     ══════════════════════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-top">
+      <div class="brand">
+        <div class="brand-kicker">Diario de mercados · Edición matutina</div>
+        <div class="brand-name">México <em>Briefing</em></div>
+      </div>
+      <div class="masthead-right">
+        <div class="masthead-date">Miércoles · 15 de julio de 2026</div>
+        <div class="masthead-edition">Mercados / Política / Diplomacia</div>
+        <div class="masthead-lead">Crisis migratoria ICE · Rebote Wall St · 12 indicadores Sheinbaum</div>
+      </div>
+    </div>
+
+    <div class="ticker">
+      <div class="ticker-item">
+        <span class="t-lbl">IPC BMV</span>
+        <span class="t-val">66,450</span>
+        <span class="t-chg up">▴ +0.15%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="t-lbl">USD/MXN</span>
+        <span class="t-val">17.42</span>
+        <span class="t-chg up">▴ peso +0.4%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="t-lbl">S&amp;P 500</span>
+        <span class="t-val">7,545</span>
+        <span class="t-chg up">▴ +0.40%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="t-lbl">Nasdaq</span>
+        <span class="t-val">25,913</span>
+        <span class="t-chg flat">→ +0.05%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="t-lbl">Brent</span>
+        <span class="t-val">$85.72</span>
+        <span class="t-chg up">▴ +1.2%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="t-lbl">Oro</span>
+        <span class="t-val">$4,028</span>
+        <span class="t-chg dn">▾ -0.6%</span>
+      </div>
+      <div class="ticker-item" style="border-right:none;">
+        <span class="t-lbl">Inflac. MX</span>
+        <span class="t-val">3.6%</span>
+        <span class="t-chg up">▴ mín 8m</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- BANNERS DUALES -->
+    <div class="gcol" style="gap:6px;">
+      <div class="ok-strip">
+        <div class="ok-dot"></div>
+        <div class="ok-text"><strong>Wall St rebota:</strong> CPI EE.UU. junio 3.5% anual (vs 4.2% mayo) — dato mejor de lo esperado alivia presión sobre la Fed · Dow +208 pts · S&amp;P +0.4% · peso se aprecia a $17.42 por dólar.</div>
+      </div>
+      <div class="alert-strip">
+        <div class="alert-dot"></div>
+        <div class="alert-text"><strong>Crisis diplomática:</strong> México inicia 4 acciones legales ante EE.UU. y ONU por asesinato de migrantes bajo custodia ICE · 17 muertos en total · ICE suspende operativos de tránsito.</div>
+      </div>
+    </div>
+
+    <!-- TIPO DE CAMBIO -->
+    <div>
+      <div class="slabel">Tipo de Cambio</div>
+      <div class="g3">
+        <div class="fx">
+          <div class="fx-pair">USD / MXN</div>
+          <div class="fx-rate"><span class="fx-ccy">$</span>17.4200</div>
+          <div class="fx-foot">
+            <span class="fx-chg up">▴ −0.06 (−0.34%) peso ↑</span>
+            <span class="fx-src">Mercado · 15 jul</span>
+          </div>
+          <canvas class="spark" id="sp-usd"></canvas>
+          <div style="font-size:7px;color:var(--text-faint);margin-top:3px;">FIX Banxico: $17.5023 · Dato preliminar</div>
+        </div>
+        <div class="fx">
+          <div class="fx-pair">EUR / MXN</div>
+          <div class="fx-rate"><span class="fx-ccy">€</span>20.12</div>
+          <div class="fx-foot">
+            <span class="fx-chg flat">→ −0.06 (−0.30%)</span>
+            <span class="fx-src">BCE · 15 jul</span>
+          </div>
+          <canvas class="spark" id="sp-eur"></canvas>
+        </div>
+        <div class="fx">
+          <div class="fx-pair">EUR / USD</div>
+          <div class="fx-rate"><span class="fx-ccy">$</span>1.1551</div>
+          <div class="fx-foot">
+            <span class="fx-chg up">▴ +0.002 (+0.17%)</span>
+            <span class="fx-src">BCE · 15 jul</span>
+          </div>
+          <canvas class="spark" id="sp-eurusd"></canvas>
+          <div style="font-size:7px;color:var(--text-faint);margin-top:3px;">Dólar débil global · CPI suaviza Fed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOLSAS + COMMODITIES -->
+    <div class="g21">
+
+      <!-- BOLSAS -->
+      <div>
+        <div class="slabel">Bolsas de Valores</div>
+        <div class="dtable-wrap">
+          <div class="dtable-head">
+            <span class="dtable-title">Índices principales</span>
+            <span class="dtable-when">Sesión 15 jul 2026</span>
+          </div>
+          <table class="dt">
+            <thead>
+              <tr>
+                <th>Índice</th>
+                <th>Nivel</th>
+                <th>Día</th>
+                <th>Año</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="dn-name">S&amp;P/BMV IPC</span><span class="dn-sub">México · BMV</span></td>
+                <td class="dval">66,450</td>
+                <td class="dchg up">+0.15%</td>
+                <td class="dsub up">+4.3%</td>
+              </tr>
+              <tr>
+                <td><span class="dn-name">S&amp;P 500</span><span class="dn-sub">EE.UU. · NYSE</span></td>
+                <td class="dval">7,545</td>
+                <td class="dchg up">+0.40%</td>
+                <td class="dsub up">+11.9%</td>
+              </tr>
+              <tr>
+                <td><span class="dn-name">Dow Jones</span><span class="dn-sub">EE.UU. · NYSE</span></td>
+                <td class="dval">52,706</td>
+                <td class="dchg up">+0.40%</td>
+                <td class="dsub up">+9.2%</td>
+              </tr>
+              <tr>
+                <td><span class="dn-name">Nasdaq Comp.</span><span class="dn-sub">EE.UU. · Nasdaq</span></td>
+                <td class="dval">25,913</td>
+                <td class="dchg flat">+0.05%</td>
+                <td class="dsub up">+14.3%</td>
+              </tr>
+              <tr>
+                <td><span class="dn-name">DAX 40</span><span class="dn-sub">Alemania · FSE</span></td>
+                <td class="dval">24,230</td>
+                <td class="dchg up">+0.46%</td>
+                <td class="dsub up">+8.4%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="bmv-highlights">
+          <div class="bmv-hl">
+            <div class="bmv-hl-lbl">Rango BMV hoy</div>
+            <div class="bmv-hl-val flat">65,875 — 66,614</div>
+          </div>
+          <div class="bmv-div"></div>
+          <div class="bmv-hl">
+            <div class="bmv-hl-lbl">Mejor emisora</div>
+            <div class="bmv-hl-val up">GMEXICOB +1.10%</div>
+          </div>
+          <div class="bmv-div"></div>
+          <div class="bmv-hl">
+            <div class="bmv-hl-lbl">Peor emisora</div>
+            <div class="bmv-hl-val dn">VOLARA −6.69%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMMODITIES -->
+      <div>
+        <div class="slabel">Materias Primas</div>
+        <div class="dtable-wrap">
+          <div class="dtable-head">
+            <span class="dtable-title">Commodities clave</span>
+            <span class="dtable-when">15 jul · CME/ICE</span>
+          </div>
+          <table class="dt">
+            <thead>
+              <tr>
+                <th>Activo</th>
+                <th>USD</th>
+                <th>Var.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="dn-name">Petróleo Brent</span><span class="dn-sub">Barril</span></td>
+                <td class="dval">$85.72</td>
+                <td class="dchg up">+1.2%</td>
+              </tr>
+              <tr>
+                <td><span class="dn-name">Petróleo WTI</span><span class="dn-sub">Barril</span></td>
+                <td class="dval">$82.50</td>
+                <td class="dchg up">+1.0%</td>
+              </tr>
+              <tr>
+                <td><span class="dn-name">Oro</span><span class="dn-sub">Troy oz</span></td>
+                <td class="dval">$4,028</td>
+                <td class="dchg dn">−0.6%</td>
+              </tr>
+              <tr>
+                <td><span class="dn-name">Plata</span><span class="dn-sub">Troy oz</span></td>
+                <td class="dval">$58.35</td>
+                <td class="dchg dn">−0.5%</td>
+              </tr>
+              <tr>
+                <td><span class="dn-name">Platino</span><span class="dn-sub">Troy oz</span></td>
+                <td class="dval">$1,629</td>
+                <td class="dchg dn">−0.1%</td>
+              </tr>
+              <tr>
+                <td><span class="dn-name">Gas Natural</span><span class="dn-sub">MMBtu</span></td>
+                <td class="dval">$3.20</td>
+                <td class="dchg up">+0.8%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- MACRO MX -->
+    <div>
+      <div class="slabel">12 Indicadores Económicos México — Presentados hoy por Sheinbaum</div>
+      <div class="kpi-row">
+        <div class="kpi jade">
+          <div class="kpi-lbl">Inflación MX jun-26</div>
+          <div class="kpi-val">3.6<span class="kpi-unit">%</span></div>
+          <div class="kpi-note">Mínimo de 8 meses · subyacente 4.03%</div>
+        </div>
+        <div class="kpi up">
+          <div class="kpi-lbl">Empleo formal récord</div>
+          <div class="kpi-val">22.77<span class="kpi-unit">M</span></div>
+          <div class="kpi-note">Junio 2026 · 2ª tasa desempleo más baja OCDE</div>
+        </div>
+        <div class="kpi up">
+          <div class="kpi-lbl">IED captada</div>
+          <div class="kpi-val">$41<span class="kpi-unit">B USD</span></div>
+          <div class="kpi-note">Top 10 mundial en inversión extranjera directa</div>
+        </div>
+        <div class="kpi gold">
+          <div class="kpi-lbl">Exportaciones récord</div>
+          <div class="kpi-val">$723<span class="kpi-unit">B USD</span></div>
+          <div class="kpi-note">Intercambio bilateral MX-EE.UU.: $839B USD</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pfooter">
+    <div class="pfooter-src">Fuentes: Banxico · BMV · Investing.com · CNBC · TheStreet · La República · Milenio · Infobae · México ¿Cómo Vamos? · Excélsior</div>
+    <div class="pfooter-page">1 / 2</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PÁGINA 2 — NOTICIAS DEL DÍA
+     ══════════════════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="pg2-head">
+    <div class="pg2-brand">México <span>Briefing</span> · Noticias 15 jul 2026</div>
+    <div class="pg2-date">Miércoles · Edición matutina</div>
+  </div>
+
+  <div class="body">
+
+    <!-- HISTORIA PRINCIPAL: MIGRANTES ICE -->
+    <div>
+      <div class="slabel">Diplomacia &amp; Derechos Humanos — Historia del Día</div>
+      <div class="news">
+        <div class="news-bar bar-red"></div>
+        <div class="news-inner">
+          <div class="news-eye">
+            <span class="ntag ntag-red">🔴 Urgente · Crisis Diplomática</span>
+            <span class="ntime">Ciudad de México / Washington — 15 jul 2026</span>
+          </div>
+          <div class="nhead">México inicia 4 acciones legales y diplomáticas por muertes de migrantes bajo custodia ICE; ONG celebran aunque califican las medidas de "tardías"</div>
+          <div class="nbody">La Secretaría de Relaciones Exteriores (SRE), con Roberto Velasco al frente, presentó denuncias formales ante el Departamento de Justicia de EE.UU., fiscalías estatales de Texas y Maine, y notificó al Alto Comisionado de la ONU para los Derechos Humanos. El detonante: el asesinato de dos ciudadanos mexicanos a manos de agentes del ICE —uno en Texas, uno en Maine— durante operativos de control migratorio ordenados por el presidente Trump. La cifra total de mexicanos muertos bajo custodia de ICE asciende a 17. Como respuesta, ICE anunció la suspensión de sus operaciones de control de tránsito. Diputados de Morena condenaron los hechos y reiteraron su apoyo a la estrategia legal del Ejecutivo. Organizaciones de la sociedad civil celebraron las acciones aunque señalaron que "llegaron tarde".</div>
+          <div class="nimpact"><strong>Impacto MX:</strong> Tensión bilateral en aumento. Las relaciones diplomáticas MX-EE.UU. entran en su fase más crítica del sexenio. Cualquier escala podría presionar el peso y las negociaciones comerciales del 20 de julio.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUMNA DOBLE: CPI FED + PEMEX -->
+    <div class="g2">
+
+      <div>
+        <div class="slabel">Mercados Globales</div>
+        <div class="news">
+          <div class="news-bar bar-jade"></div>
+          <div class="news-inner">
+            <div class="news-eye">
+              <span class="ntag ntag-jade">🟢 Positivo · Fed / CPI</span>
+              <span class="ntime">Washington — 14 jul 2026</span>
+            </div>
+            <div class="nhead">CPI EE.UU. junio baja a 3.5% anual: Wall St rebota y el peso se fortalece</div>
+            <div class="nbody">El índice de precios al consumidor de EE.UU. cayó 0.4% mensual en junio —la caída más pronunciada desde abril 2020— impulsado por un desplome del 5.7% en energía. La tasa anual bajó de 4.2% a 3.5%, muy por debajo del consenso (3.8%). El núcleo core se mantuvo plano en el mes con 2.6% anual. La probabilidad de alza de tasas Fed en septiembre cayó de 75% a 63%. Dow Jones +208 pts. El dólar se debilitó globalmente, favoreciendo al peso mexicano que cotiza en $17.42.</div>
+            <div class="nimpact"><strong>Impacto MX:</strong> Banxico con mayor espacio para continuar ciclo de recortes. Próxima reunión en agosto clave.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="slabel">Justicia &amp; Sector Energético</div>
+        <div class="news">
+          <div class="news-bar bar-gold"></div>
+          <div class="news-inner">
+            <div class="news-eye">
+              <span class="ntag ntag-gold">🟡 Seguimiento · Pemex</span>
+              <span class="ntime">Ciudad de México — 15 jul 2026</span>
+            </div>
+            <div class="nhead">Víctor Rodríguez, exdirector de Pemex, sale de prisión; juicio por violencia familiar continúa</div>
+            <div class="nbody">Un juez modificó las medidas cautelares impuestas al exfuncionario, quien podrá continuar el proceso en libertad mientras enfrenta cargos por violencia familiar. La decisión judicial no extingue el proceso penal. Al ser cuestionada sobre el caso, Sheinbaum señaló que la detención demostró que "la ley aplica independientemente de la amistad o el cargo público". El caso refuerza la imagen del gobierno en materia de combate a la impunidad.</div>
+            <div class="nimpact"><strong>Impacto MX:</strong> Señal para el mercado sobre gobernanza corporativa en Pemex y disciplina institucional.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COLUMNA DOBLE: FEMINICIDIO + PANAMA + ECONOMIA -->
+    <div class="g2">
+
+      <div>
+        <div class="slabel">Política Interior</div>
+        <div class="gcol" style="gap:8px;">
+          <div class="news">
+            <div class="news-bar bar-jade"></div>
+            <div class="news-inner">
+              <div class="news-eye">
+                <span class="ntag ntag-jade">🟢 Legislación</span>
+                <span class="ntime">CDMX — 15 jul 2026</span>
+              </div>
+              <div class="nhead">Sheinbaum firma iniciativa para homologar sanciones por feminicidio en todo el país</div>
+              <div class="nbody">La consejera jurídica de la Presidencia presentó la iniciativa que unificará el tipo penal de feminicidio y sus penas en los 32 estados. Sheinbaum declaró: "Asumí el compromiso de proteger a las mujeres." La propuesta va al Congreso en el próximo período ordinario.</div>
+            </div>
+          </div>
+          <div class="news">
+            <div class="news-bar bar-jade"></div>
+            <div class="news-inner">
+              <div class="news-eye">
+                <span class="ntag ntag-jade">🟢 Diplomacia</span>
+                <span class="ntime">Palacio Nacional — 15 jul 2026</span>
+              </div>
+              <div class="nhead">Sheinbaum recibe al presidente de Panamá Mulino; agenda bilateral de infraestructura y migración</div>
+              <div class="nbody">La presidenta de México recibió a José Raúl Mulino para fortalecer vínculos bilaterales en temas de infraestructura portuaria, flujos migratorios del Darién y cooperación regional. Reunión relevante dado el bloqueo naval a Irán y sus efectos en el Canal de Panamá.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="slabel">Economía — Balance Sheinbaum</div>
+        <div class="news" style="flex-direction:column; gap:0;">
+          <div class="news-bar" style="width:auto;height:3px;border-radius:2px 2px 0 0;background:var(--jade);margin-bottom:8px;"></div>
+          <div class="news-eye">
+            <span class="ntag ntag-jade">🟢 Positivo · Economía</span>
+            <span class="ntime">Mañanera — 15 jul 2026</span>
+          </div>
+          <div class="nhead">Sheinbaum presenta 12 indicadores históricos: salarios #1 OCDE, empleo récord, exportaciones récord</div>
+          <div class="nbody" style="margin-top:6px;">La presidenta presentó en conferencia los principales logros económicos del período. Entre los más relevantes: México ocupa el <strong style="color:var(--text);">1er lugar OCDE en incremento salarial desde 2018</strong> — salario base $669.1 pesos/día (+6.4% anual). Récord histórico de <strong style="color:var(--text);">22,779,704 empleos formales</strong> en junio. La <strong style="color:var(--text);">IED alcanzó $41,000 millones USD</strong>, ubicando a México en el top 10 mundial. El intercambio comercial MX-EE.UU. llegó a <strong style="color:var(--text);">$839,000 millones USD</strong>. Sheinbaum enmarcó los datos como evidencia de "la fortaleza de México ante presiones externas."</div>
+          <div class="nimpact" style="margin-top:8px; padding-top:6px;"><strong>Contexto:</strong> Los datos contrastan con la proyección de PIB 2026 en 1.1% anual — crecimiento sólido en empleo y salarios pero débil en producto agregado por shocks de aranceles.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PUNTOS A VIGILAR -->
+    <div class="watch-box">
+      <div class="slabel" style="margin-bottom:8px;">Puntos a vigilar hoy</div>
+      <div class="watch-items">
+        <div class="watch-item"><strong>Negociación T-MEC (20 jul):</strong> Delegación EE.UU. llega en 5 días. El fortalecimiento del peso hoy puede complicar la postura arancelaria.</div>
+        <div class="watch-item"><strong>Crisis ICE:</strong> Respuesta del Departamento de Estado de EE.UU. a las demandas de México podría escalar en cualquier dirección.</div>
+        <div class="watch-item"><strong>Fed y tasas:</strong> PPI EE.UU. de junio se publica hoy. Si confirma desinflación, peso podría apreciarse más.</div>
+        <div class="watch-item"><strong>Petróleo / Irán:</strong> Brent en $85.72 — más moderado que las señales del lunes. Seguimiento al bloqueo naval.</div>
+        <div class="watch-item"><strong>Banxico:</strong> Reunión de política monetaria de agosto en el radar. Inflación 3.6% abre espacio a recorte adicional.</div>
+        <div class="watch-item"><strong>Canal de Panamá:</strong> Visita Mulino puede derivar en acuerdos relevantes si el bloqueo a Irán afecta tráfico marítimo.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pfooter">
+    <div class="pfooter-src">Fuentes: El Financiero · La Jornada · Excélsior · Infobae MX · CNN Español · CNBC · TheStreet · La República CO · Milenio · Vanguardia · Excélsior · BLS / CPI Jun-26</div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="font-size:7px;color:var(--text-faint);">Datos indicativos · No constituyen asesoría financiera</div>
+      <div class="pfooter-page">2 / 2</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function drawSpark(id, data, color) {
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.offsetWidth || 140;
+  const h = 26;
+  canvas.width  = w * dpr;
+  canvas.height = h * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const mn = Math.min(...data), mx = Math.max(...data), rng = mx - mn || 1;
+  const pts = data.map((v, i) => ({
+    x: (i / (data.length - 1)) * w,
+    y: h - ((v - mn) / rng) * (h - 5) - 2
+  }));
+
+  const grad = ctx.createLinearGradient(0, 0, 0, h);
+  grad.addColorStop(0, color + '38');
+  grad.addColorStop(1, color + '00');
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, h);
+  pts.forEach(p => ctx.lineTo(p.x, p.y));
+  ctx.lineTo(pts[pts.length - 1].x, h);
+  ctx.closePath();
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  ctx.beginPath();
+  pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.lineJoin = 'round';
+  ctx.stroke();
+
+  const last = pts[pts.length - 1];
+  ctx.beginPath();
+  ctx.arc(last.x, last.y, 2.5, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+}
+
+window.addEventListener('load', () => {
+  const cs  = getComputedStyle(document.documentElement);
+  const upC = cs.getPropertyValue('--up').trim()   || '#29C87A';
+  const dnC = cs.getPropertyValue('--dn').trim()   || '#E03530';
+  const jdC = cs.getPropertyValue('--jade').trim() || '#00B4A0';
+
+  // USD/MXN 10 días — peso fortaleciéndose hoy
+  drawSpark('sp-usd',   [17.60,17.55,17.72,17.65,17.50,17.60,17.48,17.55,17.46,17.42], upC);
+  // EUR/MXN — moderado
+  drawSpark('sp-eur',   [20.22,20.18,20.30,20.18,20.10,20.22,20.18,20.14,20.16,20.12], jdC);
+  // EUR/USD — ligero avance
+  drawSpark('sp-eurusd',[1.150,1.151,1.153,1.152,1.150,1.153,1.155,1.154,1.154,1.155], upC);
+});
+</script>
+</body>
+</html>
