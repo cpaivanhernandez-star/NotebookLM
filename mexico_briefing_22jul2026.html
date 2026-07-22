@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>México Briefing — 22 julio 2026</title>
+<style>
+/* ─── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --bg:        #080F1A;
+  --sf:        #0E1B2C;
+  --sf2:       #142236;
+  --sf3:       #1A2D45;
+  --bd:        rgba(255,255,255,0.07);
+  --bd2:       rgba(255,255,255,0.12);
+  --tx:        #D8E2EE;
+  --txd:       #6C84A0;
+  --txf:       #384F66;
+  --jade:      #00B8A5;
+  --jade-bg:   rgba(0,184,165,0.12);
+  --up:        #27CC7A;
+  --up-bg:     rgba(39,204,122,0.10);
+  --dn:        #E53535;
+  --dn-bg:     rgba(229,53,53,0.11);
+  --gold:      #EAA92E;
+  --gold-bg:   rgba(234,169,46,0.11);
+  --mast:      #040B14;
+}
+@media (prefers-color-scheme: light) { :root {
+  --bg:#EBF0F6; --sf:#FFFFFF; --sf2:#E2E9F2; --sf3:#D5DFE9;
+  --bd:rgba(0,0,0,0.07); --bd2:rgba(0,0,0,0.12);
+  --tx:#0C1C2E; --txd:#445C74; --txf:#8FA5BA;
+  --jade:#00897C; --jade-bg:rgba(0,137,124,0.08);
+  --up:#10804A; --up-bg:rgba(16,128,74,0.08);
+  --dn:#C42020; --dn-bg:rgba(196,32,32,0.08);
+  --gold:#8F6008; --gold-bg:rgba(143,96,8,0.08);
+  --mast:#040B14;
+}}
+:root[data-theme="light"] {
+  --bg:#EBF0F6; --sf:#FFFFFF; --sf2:#E2E9F2; --sf3:#D5DFE9;
+  --bd:rgba(0,0,0,0.07); --bd2:rgba(0,0,0,0.12);
+  --tx:#0C1C2E; --txd:#445C74; --txf:#8FA5BA;
+  --jade:#00897C; --jade-bg:rgba(0,137,124,0.08);
+  --up:#10804A; --up-bg:rgba(16,128,74,0.08);
+  --dn:#C42020; --dn-bg:rgba(196,32,32,0.08);
+  --gold:#8F6008; --gold-bg:rgba(143,96,8,0.08);
+  --mast:#040B14;
+}
+:root[data-theme="dark"] {
+  --bg:#080F1A; --sf:#0E1B2C; --sf2:#142236; --sf3:#1A2D45;
+  --bd:rgba(255,255,255,0.07); --bd2:rgba(255,255,255,0.12);
+  --tx:#D8E2EE; --txd:#6C84A0; --txf:#384F66;
+  --jade:#00B8A5; --jade-bg:rgba(0,184,165,0.12);
+  --up:#27CC7A; --up-bg:rgba(39,204,122,0.10);
+  --dn:#E53535; --dn-bg:rgba(229,53,53,0.11);
+  --gold:#EAA92E; --gold-bg:rgba(234,169,46,0.11);
+  --mast:#040B14;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4;margin:0}
+body{
+  font-family:'Courier New',Courier,monospace;
+  background:var(--bg);color:var(--tx);
+  font-size:11px;line-height:1.5;
+  print-color-adjust:exact;-webkit-print-color-adjust:exact;
+}
+
+/* ─── PAGE ───────────────────────────────────────────────── */
+.page{
+  width:210mm;min-height:297mm;margin:0 auto;
+  background:var(--bg);display:flex;flex-direction:column;
+  page-break-after:always;overflow:hidden;
+}
+
+/* ─── MASTHEAD ───────────────────────────────────────────── */
+.mast{background:var(--mast);border-bottom:2px solid var(--jade);}
+.mast-top{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding:10px 20px 8px;border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.brand-eye{font-size:6.5px;letter-spacing:3.5px;text-transform:uppercase;color:var(--jade);font-weight:700;margin-bottom:2px;}
+.brand-name{font-family:Georgia,'Times New Roman',serif;font-size:27px;font-weight:700;color:#fff;letter-spacing:-0.5px;line-height:1;}
+.brand-name em{color:var(--jade);font-style:normal;}
+.mast-r{text-align:right;}
+.mast-date{font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;font-weight:600;}
+.mast-ed{font-size:7px;color:var(--txf);margin-top:2px;}
+.mast-lead{font-size:8px;color:var(--gold);margin-top:3px;font-weight:600;}
+
+/* TICKER */
+.ticker{display:flex;background:var(--sf);overflow:hidden;}
+.tk{display:flex;align-items:center;gap:5px;padding:5px 13px;border-right:1px solid var(--bd);white-space:nowrap;flex-shrink:0;}
+.tk:last-child{border-right:none;}
+.tk-l{font-size:6.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--txf);}
+.tk-v{font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--tx);}
+.tk-c{font-size:9px;font-weight:700;font-variant-numeric:tabular-nums;}
+.up{color:var(--up);} .dn{color:var(--dn);} .fl{color:var(--txd);}
+
+/* ─── BODY ───────────────────────────────────────────────── */
+.body{padding:14px 20px 13px;flex:1;display:flex;flex-direction:column;gap:12px;}
+
+/* ─── LABELS ─────────────────────────────────────────────── */
+.sl{font-size:6.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--jade);padding-bottom:4px;border-bottom:1px solid var(--bd2);margin-bottom:8px;}
+
+/* ─── GRIDS ──────────────────────────────────────────────── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:9px;}
+.g21{display:grid;grid-template-columns:2fr 1fr;gap:10px;}
+.g12{display:grid;grid-template-columns:1fr 2fr;gap:10px;}
+.gc{display:flex;flex-direction:column;gap:9px;}
+
+/* ─── FX CARDS ───────────────────────────────────────────── */
+.fx{background:var(--sf);border:1px solid var(--bd);border-radius:3px;padding:9px 11px 7px;}
+.fx-p{font-size:6.5px;letter-spacing:2px;text-transform:uppercase;color:var(--txf);margin-bottom:2px;}
+.fx-r{font-family:Georgia,serif;font-size:20px;font-weight:700;color:var(--tx);
+      font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-0.3px;}
+.fx-cc{font-size:10px;color:var(--txd);font-family:monospace;margin-right:1px;}
+.fx-f{display:flex;justify-content:space-between;align-items:center;margin-top:4px;}
+.fx-ch{font-size:9px;font-weight:700;font-variant-numeric:tabular-nums;}
+.fx-s{font-size:6.5px;color:var(--txf);}
+canvas.sp{display:block;width:100%;height:24px;margin-top:4px;}
+
+/* ─── DATA TABLE ─────────────────────────────────────────── */
+.dw{background:var(--sf);border:1px solid var(--bd);border-radius:3px;overflow:hidden;}
+.dh{display:flex;justify-content:space-between;align-items:center;
+    padding:5px 10px;border-bottom:1px solid var(--bd);}
+.dh-t{font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--txd);font-weight:700;}
+.dh-s{font-size:6.5px;color:var(--txf);}
+table.dt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+table.dt th{font-size:6.5px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+  color:var(--txf);padding:4px 10px;text-align:left;border-bottom:1px solid var(--bd);}
+table.dt th:not(:first-child){text-align:right;}
+table.dt td{padding:4.5px 10px;font-size:10px;border-bottom:1px solid var(--bd);vertical-align:middle;}
+table.dt tr:last-child td{border-bottom:none;}
+table.dt td:not(:first-child){text-align:right;}
+.dn_{font-size:9.5px;font-weight:700;color:var(--tx);display:block;}
+.ds_{font-size:7px;color:var(--txf);}
+.dv{font-weight:700;color:var(--tx);}
+.dc{font-size:9.5px;font-weight:700;}
+.dd{font-size:7.5px;color:var(--txf);}
+
+/* ─── STAT TILES ─────────────────────────────────────────── */
+.st{background:var(--sf);border:1px solid var(--bd);border-radius:3px;padding:8px 10px;}
+.st.up{border-left:3px solid var(--up);}
+.st.dn{border-left:3px solid var(--dn);}
+.st.jade{border-left:3px solid var(--jade);}
+.st.gold{border-left:3px solid var(--gold);}
+.st-l{font-size:6.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--txf);margin-bottom:3px;}
+.st-v{font-family:Georgia,serif;font-size:20px;font-weight:700;color:var(--tx);
+      font-variant-numeric:tabular-nums;line-height:1;}
+.st-u{font-size:9.5px;color:var(--txd);font-family:monospace;}
+.st-n{font-size:7px;color:var(--txf);margin-top:3px;line-height:1.4;}
+
+/* ─── STRIPS ─────────────────────────────────────────────── */
+.strip{display:flex;align-items:center;gap:9px;border-radius:3px;padding:6px 11px;}
+.strip-ok{background:var(--up-bg);border:1px solid rgba(39,204,122,0.2);}
+.strip-warn{background:var(--gold-bg);border:1px solid rgba(234,169,46,0.22);}
+.strip-alert{background:var(--dn-bg);border:1px solid rgba(229,53,53,0.22);}
+.strip-jade{background:var(--jade-bg);border:1px solid rgba(0,184,165,0.22);}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.dot-up{background:var(--up);}
+.dot-gold{background:var(--gold);}
+.dot-dn{background:var(--dn);}
+.dot-jade{background:var(--jade);}
+@media(prefers-reduced-motion:no-preference){.dot-dn{animation:bl 2s ease-in-out infinite;}}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+@media print{.dot-dn{animation:none;}}
+.strip-tx{font-size:8.5px;color:var(--tx);line-height:1.45;}
+.strip-tx strong.up{color:var(--up);}
+.strip-tx strong.dn{color:var(--dn);}
+.strip-tx strong.gold{color:var(--gold);}
+.strip-tx strong.jade{color:var(--jade);}
+
+/* ─── NEWS ───────────────────────────────────────────────── */
+.nw{background:var(--sf);border:1px solid var(--bd);border-radius:3px;padding:9px 11px;display:flex;gap:9px;}
+.nb{width:3px;border-radius:2px;flex-shrink:0;align-self:stretch;}
+.nb-dn{background:var(--dn);}
+.nb-up{background:var(--up);}
+.nb-jade{background:var(--jade);}
+.nb-gold{background:var(--gold);}
+.ni{flex:1;min-width:0;}
+.ne{display:flex;align-items:center;gap:7px;margin-bottom:4px;}
+.nt{font-size:6px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:1px 5px;border-radius:2px;}
+.nt-dn{background:var(--dn-bg);color:var(--dn);}
+.nt-up{background:var(--up-bg);color:var(--up);}
+.nt-jade{background:var(--jade-bg);color:var(--jade);}
+.nt-gold{background:var(--gold-bg);color:var(--gold);}
+.ntime{font-size:7px;color:var(--txf);}
+.nh{font-family:Georgia,'Times New Roman',serif;font-size:11px;font-weight:700;
+    color:var(--tx);line-height:1.35;text-wrap:balance;margin-bottom:3px;}
+.nb_{font-size:8.5px;color:var(--txd);line-height:1.55;}
+.ni_{font-size:7px;color:var(--txf);margin-top:4px;padding-top:4px;
+     border-top:1px solid var(--bd);line-height:1.4;}
+.ni_ strong{color:var(--gold);}
+
+/* ─── FEATURED BOX ───────────────────────────────────────── */
+.feat{
+  background:var(--sf);border:1px solid var(--bd);border-radius:3px;
+  overflow:hidden;
+}
+.feat-header{
+  background:var(--sf2);border-bottom:1px solid var(--bd);
+  padding:7px 12px;display:flex;align-items:center;gap:8px;
+}
+.feat-badge{
+  font-size:6px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  background:var(--gold-bg);color:var(--gold);padding:2px 7px;border-radius:2px;
+}
+.feat-title{font-family:Georgia,serif;font-size:12px;font-weight:700;color:var(--tx);}
+.feat-body{padding:10px 12px;}
+.feat-grid{display:grid;grid-template-columns:3fr 2fr;gap:12px;}
+.feat-text{font-size:9px;color:var(--txd);line-height:1.6;}
+.feat-text p{margin-bottom:6px;}
+.feat-text strong{color:var(--tx);}
+.agenda{display:flex;flex-direction:column;gap:5px;}
+.ag-item{background:var(--sf2);border-radius:3px;border-left:3px solid var(--gold);padding:5px 8px;}
+.ag-time{font-size:6.5px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:1px;}
+.ag-desc{font-size:8.5px;color:var(--tx);line-height:1.3;}
+
+/* ─── WATCH TABLE ────────────────────────────────────────── */
+.watch{background:var(--sf2);border:1px solid var(--bd2);border-radius:3px;padding:9px 12px;}
+.w-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px 14px;}
+.w-item{font-size:8.5px;color:var(--txd);padding-left:11px;position:relative;line-height:1.5;}
+.w-item::before{content:'▸';position:absolute;left:0;color:var(--jade);font-size:8px;}
+.w-item strong{color:var(--tx);}
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+.pf{border-top:1px solid var(--bd);padding:5px 20px;display:flex;justify-content:space-between;align-items:center;}
+.pf-s{font-size:6.5px;color:var(--txf);}
+.pf-p{font-size:7px;color:var(--jade);font-weight:700;}
+
+/* PAGE 2 HEAD */
+.p2h{background:var(--mast);border-bottom:2px solid var(--jade);
+     padding:8px 20px;display:flex;justify-content:space-between;align-items:center;}
+.p2h-b{font-family:Georgia,serif;font-size:13px;font-weight:700;color:#fff;}
+.p2h-b em{color:var(--jade);font-style:normal;}
+.p2h-d{font-size:7px;color:var(--txf);letter-spacing:1px;text-transform:uppercase;}
+</style>
+</head>
+<body>
+
+<!-- ══ PÁGINA 1 ══════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="mast">
+    <div class="mast-top">
+      <div>
+        <div class="brand-eye">Diario de mercados · Edición matutina</div>
+        <div class="brand-name">México <em>Briefing</em></div>
+      </div>
+      <div class="mast-r">
+        <div class="mast-date">Miércoles · 22 de julio de 2026</div>
+        <div class="mast-ed">Mercados / Comercio / Tecnología · T-MEC Ronda 3 hoy</div>
+        <div class="mast-lead">▸ Greer–Sheinbaum–Ebrard: negociación T-MEC arranca hoy en CDMX (22–24 jul)</div>
+      </div>
+    </div>
+    <div class="ticker">
+      <div class="tk"><span class="tk-l">IPC BMV</span><span class="tk-v">67,000</span><span class="tk-c up">▴ est.</span></div>
+      <div class="tk"><span class="tk-l">USD/MXN</span><span class="tk-v">17.42</span><span class="tk-c up">▴ peso +0.6%</span></div>
+      <div class="tk"><span class="tk-l">S&amp;P 500</span><span class="tk-v">7,612</span><span class="tk-c up">▴ +0.89%</span></div>
+      <div class="tk"><span class="tk-l">Nasdaq</span><span class="tk-v">26,247</span><span class="tk-c up">▴ +1.29%</span></div>
+      <div class="tk"><span class="tk-l">Brent</span><span class="tk-v">$88.10</span><span class="tk-c up">▴ +1.4%</span></div>
+      <div class="tk"><span class="tk-l">Oro</span><span class="tk-v">$4,051</span><span class="tk-c fl">→ +0.9%</span></div>
+      <div class="tk"><span class="tk-l">IED México</span><span class="tk-v">$41B</span><span class="tk-c up">▴ top 10</span></div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- STRIPS CONTEXTO -->
+    <div class="gc" style="gap:6px;">
+      <div class="strip strip-warn">
+        <div class="dot dot-gold"></div>
+        <div class="strip-tx"><strong class="gold">Evento del día:</strong> Jamieson Greer (Representante Comercial de EE.UU.) se reúne hoy con Sheinbaum y Ebrard — 3ª ronda revisión T-MEC. Agenda: acero, aluminio, automotriz, agricultura y servicios electrónicos. Negociaciones hasta el viernes 24.</div>
+      </div>
+      <div class="strip strip-ok">
+        <div class="dot dot-up"></div>
+        <div class="strip-tx"><strong class="up">Mercados al alza:</strong> Wall St cerró el martes con S&amp;P +0.89%, Nasdaq +1.29% impulsado por IA y tech. IPC BMV cerró martes en 66,713.83 pts (+0.89%). Peso se aprecia a $17.42 — anterior cierre $17.53.</div>
+      </div>
+    </div>
+
+    <!-- TIPO DE CAMBIO -->
+    <div>
+      <div class="sl">Tipo de Cambio</div>
+      <div class="g3">
+        <div class="fx">
+          <div class="fx-p">USD / MXN</div>
+          <div class="fx-r"><span class="fx-cc">$</span>17.4171</div>
+          <div class="fx-f">
+            <span class="fx-ch up">▴ peso +0.63% vs cierre ant.</span>
+            <span class="fx-s">Mercado · 22 jul</span>
+          </div>
+          <canvas class="sp" id="sp1"></canvas>
+          <div style="font-size:6.5px;color:var(--txf);margin-top:2px;">FIX previo: $17.5280 · T-MEC impulsa expectativa de apreciación</div>
+        </div>
+        <div class="fx">
+          <div class="fx-p">EUR / MXN</div>
+          <div class="fx-r"><span class="fx-cc">€</span>20.09</div>
+          <div class="fx-f">
+            <span class="fx-ch up">▴ peso +0.45%</span>
+            <span class="fx-s">BCE · 22 jul</span>
+          </div>
+          <canvas class="sp" id="sp2"></canvas>
+        </div>
+        <div class="fx">
+          <div class="fx-p">EUR / USD</div>
+          <div class="fx-r"><span class="fx-cc">$</span>1.1536</div>
+          <div class="fx-f">
+            <span class="fx-ch fl">→ −0.13%</span>
+            <span class="fx-s">BCE · 22 jul</span>
+          </div>
+          <canvas class="sp" id="sp3"></canvas>
+          <div style="font-size:6.5px;color:var(--txf);margin-top:2px;">Dólar lateral · mercados esperan resolución T-MEC</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOLSAS + COMMODITIES -->
+    <div class="g21">
+
+      <div>
+        <div class="sl">Bolsas de Valores</div>
+        <div class="dw">
+          <div class="dh"><span class="dh-t">Índices principales</span><span class="dh-s">Cierre 21 jul · apertura est. 22 jul</span></div>
+          <table class="dt">
+            <thead><tr><th>Índice</th><th>Cierre</th><th>Día</th><th>2026</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><span class="dn_">S&amp;P/BMV IPC</span><span class="ds_">México · BMV</span></td>
+                <td class="dv">66,713</td>
+                <td class="dc up">+0.89%</td>
+                <td class="dd up">+4.8%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">S&amp;P 500</span><span class="ds_">EE.UU. · NYSE</span></td>
+                <td class="dv">7,612</td>
+                <td class="dc up">+0.89%</td>
+                <td class="dd up">+12.7%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">Nasdaq Comp.</span><span class="ds_">EE.UU. · Nasdaq</span></td>
+                <td class="dv">26,247</td>
+                <td class="dc up">+1.29%</td>
+                <td class="dd up">+15.9%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">Dow Jones</span><span class="ds_">EE.UU. · NYSE</span></td>
+                <td class="dv">53,096</td>
+                <td class="dc up">+0.74%</td>
+                <td class="dd up">+9.8%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">DAX 40</span><span class="ds_">Alemania · FSE</span></td>
+                <td class="dv">24,380</td>
+                <td class="dc up">+0.62%</td>
+                <td class="dd up">+9.1%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- BMV hoy -->
+        <div style="display:flex;justify-content:space-between;background:var(--sf2);border:1px solid var(--bd);border-radius:3px;padding:6px 11px;margin-top:7px;gap:8px;">
+          <div style="text-align:center;flex:1;">
+            <div style="font-size:6.5px;color:var(--txf);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;">Mejor BMV mar.</div>
+            <div style="font-size:10px;font-weight:700;" class="up">BIMBOA +2.26%</div>
+          </div>
+          <div style="width:1px;background:var(--bd2);"></div>
+          <div style="text-align:center;flex:1;">
+            <div style="font-size:6.5px;color:var(--txf);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;">2° Mejor</div>
+            <div style="font-size:10px;font-weight:700;" class="up">GCARSOA1 +2.10%</div>
+          </div>
+          <div style="width:1px;background:var(--bd2);"></div>
+          <div style="text-align:center;flex:1;">
+            <div style="font-size:6.5px;color:var(--txf);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;">Peor BMV</div>
+            <div style="font-size:10px;font-weight:700;" class="dn">CEMEXCPO −4.05%</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sl">Materias Primas</div>
+        <div class="dw">
+          <div class="dh"><span class="dh-t">Commodities</span><span class="dh-s">22 jul · CME/ICE</span></div>
+          <table class="dt">
+            <thead><tr><th>Activo</th><th>USD</th><th>Var.</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><span class="dn_">Petróleo Brent</span><span class="ds_">Barril</span></td>
+                <td class="dv">$88.10</td>
+                <td class="dc up">+1.4%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">Petróleo WTI</span><span class="ds_">Barril</span></td>
+                <td class="dv">$84.80</td>
+                <td class="dc up">+1.2%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">Oro</span><span class="ds_">Troy oz</span></td>
+                <td class="dv">$4,051</td>
+                <td class="dc up">+0.9%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">Plata</span><span class="ds_">Troy oz</span></td>
+                <td class="dv">$58.60</td>
+                <td class="dc up">+0.4%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">Gas Natural</span><span class="ds_">MMBtu</span></td>
+                <td class="dv">$3.22</td>
+                <td class="dc fl">+0.1%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">Cobre</span><span class="ds_">Lb</span></td>
+                <td class="dv">$4.41</td>
+                <td class="dc up">+0.6%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MACRO TILES -->
+    <div>
+      <div class="sl">Indicadores Macro — México</div>
+      <div class="g4">
+        <div class="st jade">
+          <div class="st-l">Inflación MX jun-26</div>
+          <div class="st-v">3.6<span class="st-u">%</span></div>
+          <div class="st-n">Mínimo 8 meses · subyacente 4.03%</div>
+        </div>
+        <div class="st up">
+          <div class="st-l">Empleo formal récord</div>
+          <div class="st-v">22.77<span class="st-u">M</span></div>
+          <div class="st-n">Jun-26 · 2ª desempleo más bajo OCDE</div>
+        </div>
+        <div class="st gold">
+          <div class="st-l">Exportaciones récord</div>
+          <div class="st-v">$723<span class="st-u">B</span></div>
+          <div class="st-n">Intercambio bilateral MX-EE.UU.: $839B</div>
+        </div>
+        <div class="st up">
+          <div class="st-l">Salarios OCDE</div>
+          <div class="st-v">#1<span class="st-u"> rang.</span></div>
+          <div class="st-n">Mayor alza salarial OCDE desde 2018 · $669/día</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pf">
+    <div class="pf-s">Fuentes: Investing.com MX · BMV · ABC Color · Río Times · KuCoin · Bloomberg Línea · El Universal · Proceso · Infobae · La Silla Rota · El Imparcial</div>
+    <div class="pf-p">1 / 2</div>
+  </div>
+</div>
+
+
+<!-- ══ PÁGINA 2 — NOTICIAS ═══════════════════════════════════ -->
+<div class="page">
+
+  <div class="p2h">
+    <div class="p2h-b">México <em>Briefing</em> · Noticias 22 jul 2026</div>
+    <div class="p2h-d">Miércoles · T-MEC · Aranceles · Tecnología · Migración</div>
+  </div>
+
+  <div class="body">
+
+    <!-- FEATURED: T-MEC NEGOCIACIÓN -->
+    <div>
+      <div class="sl">Historia del Día — Comercio Exterior</div>
+      <div class="feat">
+        <div class="feat-header">
+          <span class="feat-badge">🟡 Evento Macro Crítico · T-MEC Ronda 3</span>
+          <span class="feat-title">Greer llega a CDMX: México y EE.UU. negocian revisión T-MEC del 22 al 24 de julio</span>
+        </div>
+        <div class="feat-body">
+          <div class="feat-grid">
+            <div class="feat-text">
+              <p>El Representante Comercial de EE.UU. <strong>Jamieson Greer</strong> inicia hoy en Ciudad de México la <strong>tercera ronda bilateral</strong> de la revisión conjunta del T-MEC (USMCA), que se extenderá hasta el viernes 24. Se reunirá con el Secretario de Economía <strong>Marcelo Ebrard</strong> y con la presidenta <strong>Claudia Sheinbaum</strong> en Palacio Nacional.</p>
+              <p><strong>Temas en la mesa:</strong> acero y aluminio, industria automotriz (reglas de origen), agricultura, seguridad económica, laboral y servicios de pago electrónico. Greer ha propuesto "endurecer un poco más" las reglas de origen en el sector automotriz.</p>
+              <p><strong>Postura mexicana:</strong> Sheinbaum ve posibles "primeros acuerdos" en esta ronda. México vincula cualquier cambio en reglas de origen con la <strong>reducción de aranceles existentes</strong> al acero, aluminio y vehículos.</p>
+            </div>
+            <div class="agenda">
+              <div style="font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;font-weight:700;">Agenda bilateral 22–24 jul</div>
+              <div class="ag-item">
+                <div class="ag-time">22 jul — hoy</div>
+                <div class="ag-desc">Greer–Ebrard: apertura técnica · Sectores acero, aluminio y automotriz</div>
+              </div>
+              <div class="ag-item">
+                <div class="ag-time">23 jul — jueves</div>
+                <div class="ag-desc">Sesión agricultura y seguridad económica · Servicios electrónicos</div>
+              </div>
+              <div class="ag-item">
+                <div class="ag-time">24 jul — viernes</div>
+                <div class="ag-desc">Greer–Sheinbaum en Palacio Nacional · Balance y declaración conjunta</div>
+              </div>
+              <div style="background:var(--gold-bg);border:1px solid rgba(234,169,46,0.2);border-radius:3px;padding:5px 7px;margin-top:4px;">
+                <div style="font-size:7px;color:var(--gold);font-weight:700;margin-bottom:2px;">Riesgo de mercado</div>
+                <div style="font-size:7.5px;color:var(--txd);line-height:1.4;">Un fracaso en las negociaciones podría desencadenar aranceles adicionales a México similares a los 50% anunciados contra Canadá. El peso reaccionará a cada declaración.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CANADÁ + REGULACIÓN TECH -->
+    <div class="g2">
+
+      <div>
+        <div class="sl">Comercio Internacional</div>
+        <div class="nw">
+          <div class="nb nb-dn"></div>
+          <div class="ni">
+            <div class="ne">
+              <span class="nt nt-dn">🔴 Alerta · Aranceles</span>
+              <span class="ntime">Washington — 20 jul 2026</span>
+            </div>
+            <div class="nh">Trump impone aranceles del 50% a Canadá, incluidos bienes T-MEC; vigencia 19 agosto</div>
+            <div class="nb_">Trump firmó una orden ejecutiva para gravar al 50% la mayoría de productos canadienses — incluyendo los cubiertos por el T-MEC. Los sectores más afectados son automotriz, lácteos y madera. Sheinbaum confía en que México no recibirá un trato similar, argumentando que el comercio bilateral MX-EE.UU. alcanzó un récord de $839B USD. Sin embargo, el precedente presiona las negociaciones de esta semana.</div>
+            <div class="ni_"><strong>Impacto MX:</strong> Cualquier empresa canadiense que use México como puente comercial enfrentará revisión. Cadenas de suministro de GM, Ford y Stellantis en alerta.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sl">Tecnología &amp; Educación</div>
+        <div class="nw">
+          <div class="nb nb-jade"></div>
+          <div class="ni">
+            <div class="ne">
+              <span class="nt nt-jade">🟢 Política Pública · IA</span>
+              <span class="ntime">CDMX — 20 jul 2026</span>
+            </div>
+            <div class="nh">Sheinbaum y SEP abren debate nacional para regular celulares, redes sociales e IA en escuelas</div>
+            <div class="nb_">El gobierno inicia un proceso de consulta pública mediante foros en Nuevo León, Chiapas y Guerrero para regular el uso de dispositivos digitales, redes sociales e inteligencia artificial entre niñas, niños y adolescentes. La iniciativa recibirá participación de expertos, padres de familia y jóvenes, con miras a presentar una reforma legislativa al Congreso en el próximo período ordinario. Partidos de oposición como el PAN celebraron el debate.</div>
+            <div class="ni_"><strong>Impacto sector:</strong> Primera regulación IA/tech educativa de México. Podría influir en plataformas como Meta, TikTok y Google Education.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MIGRACIÓN + ECONOMÍA MUNDIAL -->
+    <div class="g2">
+
+      <div>
+        <div class="sl">Diplomacia &amp; Migración</div>
+        <div class="nw">
+          <div class="nb nb-dn"></div>
+          <div class="ni">
+            <div class="ne">
+              <span class="nt nt-dn">🔴 Crisis activa · ICE</span>
+              <span class="ntime">SRE — semana del 14 jul</span>
+            </div>
+            <div class="nh">Crisis migratoria ICE persiste: 4 demandas penales en curso; tensión bilateral como telón de fondo en T-MEC</div>
+            <div class="nb_">Las cuatro acciones legales iniciadas por la SRE la semana pasada ante el DOJ, fiscalías de Texas y Maine, y la ONU siguen activas. Organizaciones civiles advierten que la crisis es el principal factor de fricción que podría complicar el tono de las negociaciones T-MEC esta semana. ICE mantiene suspensión de controles de tránsito pero la cifra de 17 mexicanos muertos bajo custodia no ha disminuido.</div>
+            <div class="ni_"><strong>Riesgo:</strong> Un incidente adicional durante la semana de negociación podría elevar la tensión bilateral de forma crítica.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sl">Mercados Globales — Contexto</div>
+        <div class="nw">
+          <div class="nb nb-up"></div>
+          <div class="ni">
+            <div class="ne">
+              <span class="nt nt-up">🟢 Positivo · Tech / IA</span>
+              <span class="ntime">Wall Street — 22 jul 2026</span>
+            </div>
+            <div class="nh">Nasdaq sube 1.29% impulsado por IA; S&P 500 +0.89% — tecnología lidera recuperación global</div>
+            <div class="nb_">Los mercados cerraron el martes en verde con el Nasdaq encabezando las ganancias gracias al optimismo en torno a resultados de empresas de inteligencia artificial y semiconductores. Volúmenes moderados sin grandes publicaciones macro. La recuperación contrarresta las caídas de la semana previa. Para México, el alza de Wall St se traduce en flujos hacia BMV y fortalecimiento del peso, favorable para la apertura de la sesión de hoy.</div>
+            <div class="ni_"><strong>Impacto MX:</strong> IPC BMV en resistencia 67,000 pts. Rompimiento dependería del resultado de la ronda T-MEC.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PUNTOS A VIGILAR -->
+    <div class="watch">
+      <div class="sl" style="margin-bottom:7px;">Puntos a vigilar esta semana</div>
+      <div class="w-grid">
+        <div class="w-item"><strong>T-MEC (hoy–vier.):</strong> Cada declaración de Greer o Ebrard moverá el peso. Un avance en acero/aluminio = apreciación; ruptura = fuga a $17.80+.</div>
+        <div class="w-item"><strong>Aranceles Canadá:</strong> Vigentes el 19 ago. ¿Extenderá Trump la misma lógica a México? La ronda de esta semana lo aclarará.</div>
+        <div class="w-item"><strong>Automotriz:</strong> Reglas de origen más estrictas afectan a GM, Ford, Stellantis y Toyota México. Sector en observación máxima.</div>
+        <div class="w-item"><strong>Petróleo/Irán:</strong> Brent sube a $88. El bloqueo naval sigue activo. Pemex exporta a precios altos — positivo para finanzas públicas.</div>
+        <div class="w-item"><strong>Banxico:</strong> Con inflación en 3.6% y peso apreciándose, reunión de agosto podría traer recorte adicional de 25pb.</div>
+        <div class="w-item"><strong>Regulación IA/Menores:</strong> Foros Sheinbaum-SEP esta semana. Primer movimiento legislativo real sobre tech en México.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pf">
+    <div class="pf-s">Fuentes: El Universal · Proceso · La Silla Rota · El Imparcial · Infobae MX · Dossier Político · La Jornada · America Económica · Bloomberg Línea · KuCoin · CNBC · Cultura Colectiva</div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="font-size:6.5px;color:var(--txf);">Datos indicativos · No constituyen asesoría de inversión</div>
+      <div class="pf-p">2 / 2</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function spark(id, data, color) {
+  const c = document.getElementById(id);
+  if (!c) return;
+  const dpr = window.devicePixelRatio || 1;
+  const w = c.offsetWidth || 160, h = 24;
+  c.width = w * dpr; c.height = h * dpr;
+  const ctx = c.getContext('2d');
+  ctx.scale(dpr, dpr);
+  const mn = Math.min(...data), mx = Math.max(...data), rng = mx - mn || 1;
+  const pts = data.map((v,i)=>({ x:(i/(data.length-1))*w, y:h-((v-mn)/rng)*(h-5)-2 }));
+  const g = ctx.createLinearGradient(0,0,0,h);
+  g.addColorStop(0,color+'35'); g.addColorStop(1,color+'00');
+  ctx.beginPath(); ctx.moveTo(pts[0].x,h);
+  pts.forEach(p=>ctx.lineTo(p.x,p.y));
+  ctx.lineTo(pts[pts.length-1].x,h); ctx.closePath();
+  ctx.fillStyle=g; ctx.fill();
+  ctx.beginPath();
+  pts.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y));
+  ctx.strokeStyle=color; ctx.lineWidth=1.5; ctx.lineJoin='round'; ctx.stroke();
+  const L=pts[pts.length-1];
+  ctx.beginPath(); ctx.arc(L.x,L.y,2.5,0,Math.PI*2);
+  ctx.fillStyle=color; ctx.fill();
+}
+
+window.addEventListener('load',()=>{
+  const cs=getComputedStyle(document.documentElement);
+  const upC=cs.getPropertyValue('--up').trim()||'#27CC7A';
+  const dnC=cs.getPropertyValue('--dn').trim()||'#E53535';
+  const jdC=cs.getPropertyValue('--jade').trim()||'#00B8A5';
+  // USD/MXN — peso apreciándose esta semana
+  spark('sp1',[17.72,17.65,17.50,17.60,17.53,17.60,17.48,17.50,17.46,17.42],upC);
+  // EUR/MXN — moderado bajando
+  spark('sp2',[20.28,20.22,20.18,20.22,20.18,20.14,20.12,20.10,20.11,20.09],jdC);
+  // EUR/USD — estable
+  spark('sp3',[1.154,1.155,1.153,1.155,1.154,1.153,1.155,1.154,1.153,1.154],dnC);
+});
+</script>
+</body>
+</html>
