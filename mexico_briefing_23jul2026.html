@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>México Briefing — 23 julio 2026</title>
+<style>
+:root {
+  --bg:#07111C; --sf:#0D1A2A; --sf2:#122033; --sf3:#182C42;
+  --bd:rgba(255,255,255,0.07); --bd2:rgba(255,255,255,0.13);
+  --tx:#D6E1EE; --txd:#6B82A0; --txf:#374F68;
+  --jade:#00BAAA; --jade-bg:rgba(0,186,170,0.13);
+  --up:#26CC78; --up-bg:rgba(38,204,120,0.11);
+  --dn:#E63636; --dn-bg:rgba(230,54,54,0.11);
+  --gold:#EBAA2C; --gold-bg:rgba(235,170,44,0.12);
+  --mast:#030A12;
+}
+@media(prefers-color-scheme:light){:root{
+  --bg:#EAF0F6;--sf:#FFF;--sf2:#E1EAF3;--sf3:#D4E0EB;
+  --bd:rgba(0,0,0,0.07);--bd2:rgba(0,0,0,0.13);
+  --tx:#0B1A2C;--txd:#435870;--txf:#8DA4BC;
+  --jade:#007A70;--jade-bg:rgba(0,122,112,0.09);
+  --up:#0F7A45;--up-bg:rgba(15,122,69,0.09);
+  --dn:#C22020;--dn-bg:rgba(194,32,32,0.09);
+  --gold:#8A5E08;--gold-bg:rgba(138,94,8,0.09);
+  --mast:#030A12;
+}}
+:root[data-theme="light"]{--bg:#EAF0F6;--sf:#FFF;--sf2:#E1EAF3;--sf3:#D4E0EB;--bd:rgba(0,0,0,0.07);--bd2:rgba(0,0,0,0.13);--tx:#0B1A2C;--txd:#435870;--txf:#8DA4BC;--jade:#007A70;--jade-bg:rgba(0,122,112,0.09);--up:#0F7A45;--up-bg:rgba(15,122,69,0.09);--dn:#C22020;--dn-bg:rgba(194,32,32,0.09);--gold:#8A5E08;--gold-bg:rgba(138,94,8,0.09);--mast:#030A12;}
+:root[data-theme="dark"]{--bg:#07111C;--sf:#0D1A2A;--sf2:#122033;--sf3:#182C42;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13);--tx:#D6E1EE;--txd:#6B82A0;--txf:#374F68;--jade:#00BAAA;--jade-bg:rgba(0,186,170,0.13);--up:#26CC78;--up-bg:rgba(38,204,120,0.11);--dn:#E63636;--dn-bg:rgba(230,54,54,0.11);--gold:#EBAA2C;--gold-bg:rgba(235,170,44,0.12);--mast:#030A12;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4;margin:0}
+body{font-family:'Courier New',Courier,monospace;background:var(--bg);color:var(--tx);font-size:11px;line-height:1.5;print-color-adjust:exact;-webkit-print-color-adjust:exact;}
+
+.page{width:210mm;min-height:297mm;margin:0 auto;background:var(--bg);display:flex;flex-direction:column;page-break-after:always;overflow:hidden;}
+
+/* MASTHEAD */
+.mast{background:var(--mast);border-bottom:2px solid var(--jade);}
+.mast-top{display:flex;align-items:flex-end;justify-content:space-between;padding:10px 20px 8px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.b-eye{font-size:6.5px;letter-spacing:3.5px;text-transform:uppercase;color:var(--jade);font-weight:700;margin-bottom:2px;}
+.b-name{font-family:Georgia,'Times New Roman',serif;font-size:27px;font-weight:700;color:#fff;letter-spacing:-0.5px;line-height:1;}
+.b-name em{color:var(--jade);font-style:normal;}
+.m-r{text-align:right;}
+.m-date{font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;font-weight:600;}
+.m-ed{font-size:7px;color:var(--txf);margin-top:2px;}
+.m-lead{font-size:8px;color:var(--gold);margin-top:3px;font-weight:600;}
+
+/* TICKER */
+.tick{display:flex;background:var(--sf);overflow:hidden;}
+.ti{display:flex;align-items:center;gap:5px;padding:5px 12px;border-right:1px solid var(--bd);white-space:nowrap;flex-shrink:0;}
+.ti:last-child{border-right:none;}
+.tl{font-size:6.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--txf);}
+.tv{font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--tx);}
+.tc{font-size:8.5px;font-weight:700;font-variant-numeric:tabular-nums;}
+.up{color:var(--up);}.dn{color:var(--dn);}.fl{color:var(--txd);}
+
+/* BODY */
+.body{padding:14px 20px 12px;flex:1;display:flex;flex-direction:column;gap:12px;}
+
+/* LABELS */
+.sl{font-size:6.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--jade);padding-bottom:4px;border-bottom:1px solid var(--bd2);margin-bottom:8px;}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:9px;}
+.g21{display:grid;grid-template-columns:2fr 1fr;gap:10px;}
+.gc{display:flex;flex-direction:column;gap:8px;}
+
+/* FX */
+.fx{background:var(--sf);border:1px solid var(--bd);border-radius:3px;padding:9px 11px 7px;}
+.fx-p{font-size:6.5px;letter-spacing:2px;text-transform:uppercase;color:var(--txf);margin-bottom:2px;}
+.fx-r{font-family:Georgia,serif;font-size:20px;font-weight:700;color:var(--tx);font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-0.3px;}
+.fx-cc{font-size:10px;color:var(--txd);font-family:monospace;margin-right:1px;}
+.fx-f{display:flex;justify-content:space-between;align-items:center;margin-top:4px;}
+.fx-ch{font-size:9px;font-weight:700;font-variant-numeric:tabular-nums;}
+.fx-s{font-size:6.5px;color:var(--txf);}
+canvas.sp{display:block;width:100%;height:24px;margin-top:4px;}
+
+/* DATA TABLE */
+.dw{background:var(--sf);border:1px solid var(--bd);border-radius:3px;overflow:hidden;}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:5px 10px;border-bottom:1px solid var(--bd);}
+.dh-t{font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--txd);font-weight:700;}
+.dh-s{font-size:6.5px;color:var(--txf);}
+table.dt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+table.dt th{font-size:6.5px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--txf);padding:4px 10px;text-align:left;border-bottom:1px solid var(--bd);}
+table.dt th:not(:first-child){text-align:right;}
+table.dt td{padding:4.5px 10px;font-size:10px;border-bottom:1px solid var(--bd);vertical-align:middle;}
+table.dt tr:last-child td{border-bottom:none;}
+table.dt td:not(:first-child){text-align:right;}
+.dn_{font-size:9.5px;font-weight:700;color:var(--tx);display:block;}
+.ds_{font-size:7px;color:var(--txf);}
+.dv{font-weight:700;color:var(--tx);}
+.dc{font-size:9.5px;font-weight:700;}
+.dd{font-size:7.5px;color:var(--txf);}
+
+/* STAT */
+.st{background:var(--sf);border:1px solid var(--bd);border-radius:3px;padding:8px 10px;}
+.st.up{border-left:3px solid var(--up);}.st.dn{border-left:3px solid var(--dn);}.st.jade{border-left:3px solid var(--jade);}.st.gold{border-left:3px solid var(--gold);}
+.st-l{font-size:6.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--txf);margin-bottom:3px;}
+.st-v{font-family:Georgia,serif;font-size:20px;font-weight:700;color:var(--tx);font-variant-numeric:tabular-nums;line-height:1;}
+.st-u{font-size:9.5px;color:var(--txd);font-family:monospace;}
+.st-n{font-size:7px;color:var(--txf);margin-top:3px;line-height:1.4;}
+
+/* STRIPS */
+.strip{display:flex;align-items:center;gap:9px;border-radius:3px;padding:6px 11px;}
+.s-ok{background:var(--up-bg);border:1px solid rgba(38,204,120,0.2);}
+.s-w{background:var(--gold-bg);border:1px solid rgba(235,170,44,0.22);}
+.s-a{background:var(--dn-bg);border:1px solid rgba(230,54,54,0.22);}
+.s-j{background:var(--jade-bg);border:1px solid rgba(0,186,170,0.22);}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.d-up{background:var(--up);}.d-gd{background:var(--gold);}.d-dn{background:var(--dn);}.d-jd{background:var(--jade);}
+@media(prefers-reduced-motion:no-preference){.d-dn{animation:bl 2s ease-in-out infinite;}}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+@media print{.d-dn{animation:none;}}
+.s-tx{font-size:8.5px;color:var(--tx);line-height:1.45;}
+.s-tx b.u{color:var(--up);}.s-tx b.d{color:var(--dn);}.s-tx b.g{color:var(--gold);}.s-tx b.j{color:var(--jade);}
+
+/* NEWS */
+.nw{background:var(--sf);border:1px solid var(--bd);border-radius:3px;padding:9px 11px;display:flex;gap:9px;}
+.nb-{width:3px;border-radius:2px;flex-shrink:0;align-self:stretch;}
+.nb-dn{background:var(--dn);}.nb-up{background:var(--up);}.nb-jd{background:var(--jade);}.nb-gd{background:var(--gold);}
+.ni{flex:1;min-width:0;}
+.ne{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.nt{font-size:6px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:1px 5px;border-radius:2px;}
+.nt-dn{background:var(--dn-bg);color:var(--dn);}.nt-up{background:var(--up-bg);color:var(--up);}.nt-jd{background:var(--jade-bg);color:var(--jade);}.nt-gd{background:var(--gold-bg);color:var(--gold);}
+.ntime{font-size:7px;color:var(--txf);}
+.nh{font-family:Georgia,'Times New Roman',serif;font-size:11px;font-weight:700;color:var(--tx);line-height:1.35;text-wrap:balance;margin-bottom:3px;}
+.nb_{font-size:8.5px;color:var(--txd);line-height:1.55;}
+.ni_{font-size:7px;color:var(--txf);margin-top:4px;padding-top:4px;border-top:1px solid var(--bd);line-height:1.4;}
+.ni_ b{color:var(--gold);}
+
+/* DECOMISO CARD — visual especial */
+.decomiso{
+  background:var(--sf);border:1px solid var(--bd);border-radius:3px;overflow:hidden;
+}
+.decomiso-head{
+  background:var(--dn-bg);border-bottom:1px solid rgba(230,54,54,0.2);
+  padding:7px 12px;display:flex;align-items:center;gap:8px;
+}
+.decomiso-badge{font-size:6px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:var(--dn-bg);color:var(--dn);padding:2px 7px;border-radius:2px;border:1px solid rgba(230,54,54,0.3);}
+.decomiso-title{font-family:Georgia,serif;font-size:11.5px;font-weight:700;color:var(--tx);}
+.decomiso-body{padding:9px 12px;display:grid;grid-template-columns:3fr 2fr;gap:12px;}
+.decomiso-text{font-size:8.5px;color:var(--txd);line-height:1.6;}
+.decomiso-text p{margin-bottom:5px;}
+.decomiso-text b{color:var(--tx);}
+.decomiso-fig{display:flex;flex-direction:column;gap:6px;}
+.fig-tile{background:var(--sf2);border-radius:3px;border-left:3px solid var(--dn);padding:6px 9px;}
+.fig-lbl{font-size:6.5px;letter-spacing:1px;text-transform:uppercase;color:var(--txf);margin-bottom:2px;}
+.fig-val{font-family:Georgia,serif;font-size:16px;font-weight:700;color:var(--dn);font-variant-numeric:tabular-nums;line-height:1;}
+.fig-sub{font-size:7px;color:var(--txf);margin-top:2px;}
+
+/* WATCH */
+.watch{background:var(--sf2);border:1px solid var(--bd2);border-radius:3px;padding:9px 12px;}
+.w-g{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px 14px;}
+.w-i{font-size:8.5px;color:var(--txd);padding-left:11px;position:relative;line-height:1.5;}
+.w-i::before{content:'▸';position:absolute;left:0;color:var(--jade);font-size:8px;}
+.w-i b{color:var(--tx);}
+
+/* FOOTER */
+.pf{border-top:1px solid var(--bd);padding:5px 20px;display:flex;justify-content:space-between;align-items:center;}
+.pf-s{font-size:6.5px;color:var(--txf);}
+.pf-p{font-size:7px;color:var(--jade);font-weight:700;}
+
+.p2h{background:var(--mast);border-bottom:2px solid var(--jade);padding:8px 20px;display:flex;justify-content:space-between;align-items:center;}
+.p2h-b{font-family:Georgia,serif;font-size:13px;font-weight:700;color:#fff;}
+.p2h-b em{color:var(--jade);font-style:normal;}
+.p2h-d{font-size:7px;color:var(--txf);letter-spacing:1px;text-transform:uppercase;}
+</style>
+</head>
+<body>
+
+<!-- ══ PÁGINA 1 ══════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="mast">
+    <div class="mast-top">
+      <div>
+        <div class="b-eye">Diario de mercados · Edición matutina</div>
+        <div class="b-name">México <em>Briefing</em></div>
+      </div>
+      <div class="m-r">
+        <div class="m-date">Jueves · 23 de julio de 2026</div>
+        <div class="m-ed">Mercados / T-MEC Día 2 / Crimen Organizado / Tech Earnings</div>
+        <div class="m-lead">▸ El Mayo: $15,000 MDD decomisados · Greer–Sheinbaum hoy · Alphabet/Tesla reportan</div>
+      </div>
+    </div>
+    <div class="tick">
+      <div class="ti"><span class="tl">IPC BMV</span><span class="tv">67,302</span><span class="tc up">▴ +0.88%</span></div>
+      <div class="ti"><span class="tl">USD/MXN</span><span class="tv">17.38</span><span class="tc up">▴ peso +0.3%</span></div>
+      <div class="ti"><span class="tl">S&amp;P 500</span><span class="tv">7,580</span><span class="tc fl">→ mixto</span></div>
+      <div class="ti"><span class="tl">Nasdaq</span><span class="tv">26,100</span><span class="tc fl">→ cauteloso</span></div>
+      <div class="ti"><span class="tl">Brent</span><span class="tv">$89.40</span><span class="tc up">▴ +1.5%</span></div>
+      <div class="ti"><span class="tl">Oro</span><span class="tv">$4,058</span><span class="tc up">▴ +0.2%</span></div>
+      <div class="ti"><span class="tl">FIX Banxico</span><span class="tv">17.3973</span><span class="tc up">▴ 22 jul</span></div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- CONTEXT STRIPS -->
+    <div class="gc" style="gap:6px;">
+      <div class="strip s-a">
+        <div class="dot d-dn"></div>
+        <div class="s-tx"><b class="d">Crimen organizado:</b> EE.UU. condena a "El Mayo" Zambada a cadena perpetua y decomisa <b class="d">$15,000 millones de dólares</b>. Sheinbaum ordena a la FGR analizar si México puede reclamar parte del patrimonio decomisado.</div>
+      </div>
+      <div class="strip s-w">
+        <div class="dot d-gd"></div>
+        <div class="s-tx"><b class="g">T-MEC Día 2:</b> Greer se reúne hoy con Sheinbaum en Palacio Nacional. Anticipa acuerdos provisionales antes de fin de año, pero reglas de origen automotriz se posponen a 2027. EE.UU. alista aranceles para 60 países.</div>
+      </div>
+    </div>
+
+    <!-- TIPO DE CAMBIO -->
+    <div>
+      <div class="sl">Tipo de Cambio</div>
+      <div class="g3">
+        <div class="fx">
+          <div class="fx-p">USD / MXN</div>
+          <div class="fx-r"><span class="fx-cc">$</span>17.3800</div>
+          <div class="fx-f"><span class="fx-ch up">▴ peso +0.33%</span><span class="fx-s">Mercado · 23 jul</span></div>
+          <canvas class="sp" id="sp1"></canvas>
+          <div style="font-size:6.5px;color:var(--txf);margin-top:2px;">FIX Banxico 22 jul: $17.3973 · Sesión: 17.3800–17.5596</div>
+        </div>
+        <div class="fx">
+          <div class="fx-p">EUR / MXN</div>
+          <div class="fx-r"><span class="fx-cc">€</span>20.05</div>
+          <div class="fx-f"><span class="fx-ch up">▴ +0.20%</span><span class="fx-s">BCE · 23 jul</span></div>
+          <canvas class="sp" id="sp2"></canvas>
+        </div>
+        <div class="fx">
+          <div class="fx-p">EUR / USD</div>
+          <div class="fx-r"><span class="fx-cc">$</span>1.1532</div>
+          <div class="fx-f"><span class="fx-ch fl">→ −0.04%</span><span class="fx-s">BCE · 23 jul</span></div>
+          <canvas class="sp" id="sp3"></canvas>
+          <div style="font-size:6.5px;color:var(--txf);margin-top:2px;">Mercados en espera de tech earnings post-cierre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOLSAS + COMMODITIES -->
+    <div class="g21">
+      <div>
+        <div class="sl">Bolsas de Valores</div>
+        <div class="dw">
+          <div class="dh"><span class="dh-t">Índices principales</span><span class="dh-s">Sesión 23 jul 2026</span></div>
+          <table class="dt">
+            <thead><tr><th>Índice</th><th>Nivel</th><th>Día</th><th>2026</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><span class="dn_">S&amp;P/BMV IPC</span><span class="ds_">México · BMV</span></td>
+                <td class="dv">67,302</td>
+                <td class="dc up">+0.88%</td>
+                <td class="dd up">+5.7%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">S&amp;P 500</span><span class="ds_">EE.UU. · NYSE</span></td>
+                <td class="dv">7,580</td>
+                <td class="dc fl">−0.42%</td>
+                <td class="dd up">+12.2%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">Nasdaq Comp.</span><span class="ds_">EE.UU. · Nasdaq</span></td>
+                <td class="dv">26,100</td>
+                <td class="dc fl">−0.55%</td>
+                <td class="dd up">+15.2%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">Dow Jones</span><span class="ds_">EE.UU. · NYSE</span></td>
+                <td class="dv">52,800</td>
+                <td class="dc dn">−0.55%</td>
+                <td class="dd up">+9.1%</td>
+              </tr>
+              <tr>
+                <td><span class="dn_">DAX 40</span><span class="ds_">Alemania · FSE</span></td>
+                <td class="dv">24,290</td>
+                <td class="dc fl">−0.37%</td>
+                <td class="dd up">+8.7%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="display:flex;justify-content:space-between;background:var(--sf2);border:1px solid var(--bd);border-radius:3px;padding:6px 11px;margin-top:7px;gap:8px;">
+          <div style="text-align:center;flex:1;">
+            <div style="font-size:6.5px;color:var(--txf);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;">Mejor BMV hoy</div>
+            <div style="font-size:10.5px;font-weight:700;" class="up">GMEXICO +4.34%</div>
+          </div>
+          <div style="width:1px;background:var(--bd2);"></div>
+          <div style="text-align:center;flex:1;">
+            <div style="font-size:6.5px;color:var(--txf);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;">Rango IPC</div>
+            <div style="font-size:10px;font-weight:700;" class="fl">66,094 — 67,001</div>
+          </div>
+          <div style="width:1px;background:var(--bd2);"></div>
+          <div style="text-align:center;flex:1;">
+            <div style="font-size:6.5px;color:var(--txf);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;">Peor BMV</div>
+            <div style="font-size:10.5px;font-weight:700;" class="dn">MEGACBL −3.92%</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sl">Materias Primas</div>
+        <div class="dw">
+          <div class="dh"><span class="dh-t">Commodities</span><span class="dh-s">23 jul · CME/ICE</span></div>
+          <table class="dt">
+            <thead><tr><th>Activo</th><th>USD</th><th>Var.</th></tr></thead>
+            <tbody>
+              <tr><td><span class="dn_">Petróleo Brent</span><span class="ds_">Barril</span></td><td class="dv">$89.40</td><td class="dc up">+1.5%</td></tr>
+              <tr><td><span class="dn_">Petróleo WTI</span><span class="ds_">Barril</span></td><td class="dv">$85.90</td><td class="dc up">+1.3%</td></tr>
+              <tr><td><span class="dn_">Oro</span><span class="ds_">Troy oz</span></td><td class="dv">$4,058</td><td class="dc up">+0.2%</td></tr>
+              <tr><td><span class="dn_">Plata</span><span class="ds_">Troy oz</span></td><td class="dv">$58.45</td><td class="dc fl">+0.1%</td></tr>
+              <tr><td><span class="dn_">Gas Natural</span><span class="ds_">MMBtu</span></td><td class="dv">$3.28</td><td class="dc up">+1.9%</td></tr>
+              <tr><td><span class="dn_">Cobre</span><span class="ds_">Lb</span></td><td class="dv">$4.44</td><td class="dc up">+0.7%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="background:var(--dn-bg);border:1px solid rgba(230,54,54,0.2);border-radius:3px;padding:6px 9px;margin-top:7px;">
+          <div style="font-size:6.5px;color:var(--dn);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;">⚠ Riesgo energético</div>
+          <div style="font-size:7.5px;color:var(--txd);line-height:1.45;">Brent roza $90/bbl por nuevos ataques en Medio Oriente. Petróleo cotiza ~$5 por encima del promedio de las últimas 4 semanas. Pemex se beneficia en ingresos de exportación.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MACRO TILES -->
+    <div>
+      <div class="sl">Indicadores Macro · México</div>
+      <div class="g4">
+        <div class="st jade">
+          <div class="st-l">Inflación MX jun-26</div>
+          <div class="st-v">3.6<span class="st-u">%</span></div>
+          <div class="st-n">Mínimo 8 meses · subyacente 4.03%</div>
+        </div>
+        <div class="st up">
+          <div class="st-l">Homicidios EdoMex</div>
+          <div class="st-v">−56<span class="st-u">%</span></div>
+          <div class="st-n">Sep-24 a jun-26 · de 6.6 a 2.8 diarios</div>
+        </div>
+        <div class="st gold">
+          <div class="st-l">Decomiso El Mayo</div>
+          <div class="st-v">$15<span class="st-u">B USD</span></div>
+          <div class="st-n">FGR analiza si México puede reclamar parte</div>
+        </div>
+        <div class="st up">
+          <div class="st-l">Empleo formal</div>
+          <div class="st-v">22.77<span class="st-u">M</span></div>
+          <div class="st-n">Récord jun-26 · 2ª tasa desempleo más baja OCDE</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pf">
+    <div class="pf-s">Fuentes: Investing.com MX · BMV · Infobae · El Imparcial · Milenio · El Universal · El Financiero · Ambito · Yahoo Finance · CNN en Español · XTB · Bolsamania</div>
+    <div class="pf-p">1 / 2</div>
+  </div>
+</div>
+
+
+<!-- ══ PÁGINA 2 — NOTICIAS ═══════════════════════════════════ -->
+<div class="page">
+
+  <div class="p2h">
+    <div class="p2h-b">México <em>Briefing</em> · Noticias 23 jul 2026</div>
+    <div class="p2h-d">Jueves · T-MEC / El Mayo / Tech Earnings / Seguridad</div>
+  </div>
+
+  <div class="body">
+
+    <!-- HISTORIA PRINCIPAL: EL MAYO -->
+    <div>
+      <div class="sl">Historia del Día — Crimen Organizado &amp; Diplomacia</div>
+      <div class="decomiso">
+        <div class="decomiso-head">
+          <span class="decomiso-badge">🔴 Crítico · Crimen Organizado</span>
+          <span class="decomiso-title">EE.UU. condena a cadena perpetua a "El Mayo" y decomisa $15,000 MDD — México evalúa reclamar bienes</span>
+        </div>
+        <div class="decomiso-body">
+          <div class="decomiso-text">
+            <p>Ismael <b>"El Mayo" Zambada</b>, cofundador del Cártel de Sinaloa, recibió sentencia de <b>cadena perpetua</b> en una corte federal de Estados Unidos. El juez ordenó además el decomiso de un patrimonio valorado en aproximadamente <b>15,000 millones de dólares</b> —aunque dichos bienes aún no han sido asegurados en su totalidad.</p>
+            <p>La presidenta <b>Claudia Sheinbaum</b> encargó a la <b>FGR revisar la viabilidad jurídica de que México reclame una parte de los activos decomisados</b>, dejando abierta esta posibilidad sin comprometerse públicamente. Sheinbaum señaló que "el gobierno de México tiene el derecho de solicitar cooperación jurídica internacional."</p>
+            <p>El caso también reactiva la tensión diplomática: la detención de El Mayo fue orquestada sin coordinación con México, un punto de fricción que el gobierno de Sheinbaum ha subrayado reiteradamente ante el Departamento de Estado.</p>
+          </div>
+          <div class="decomiso-fig">
+            <div class="fig-tile">
+              <div class="fig-lbl">Decomiso ordenado</div>
+              <div class="fig-val">$15,000<span style="font-size:9px;"> M USD</span></div>
+              <div class="fig-sub">Sin asegurar en su totalidad · Proceso en curso</div>
+            </div>
+            <div class="fig-tile">
+              <div class="fig-lbl">Condena</div>
+              <div class="fig-val" style="font-size:13px;">Cadena perpetua</div>
+              <div class="fig-sub">Corte federal de EE.UU. · jul 2026</div>
+            </div>
+            <div style="background:var(--gold-bg);border:1px solid rgba(235,170,44,0.2);border-radius:3px;padding:5px 7px;">
+              <div style="font-size:6.5px;color:var(--gold);font-weight:700;margin-bottom:2px;letter-spacing:1px;text-transform:uppercase;">Postura FGR</div>
+              <div style="font-size:7.5px;color:var(--txd);line-height:1.45;">Revisión jurídica iniciada. Cooperación internacional requiere acuerdo bilateral — proceso podría tardar meses. México es 3er mayor déficit comercial de EE.UU., lo que complica presiones.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- T-MEC + TECH EARNINGS -->
+    <div class="g2">
+      <div>
+        <div class="sl">Comercio Exterior — T-MEC Día 2</div>
+        <div class="nw">
+          <div class="nb- nb-gd"></div>
+          <div class="ni">
+            <div class="ne">
+              <span class="nt nt-gd">🟡 Decisivo · T-MEC Ronda 3</span>
+              <span class="ntime">CDMX — 23 jul 2026</span>
+            </div>
+            <div class="nh">Greer se reúne hoy con Sheinbaum: anticipa primeros acuerdos antes de fin de año pero pospone reglas de origen a 2027</div>
+            <div class="nb_">El representante comercial de EE.UU. <b>Jamieson Greer</b> confirmó ayer que espera llegar a "acuerdos provisionales" con México y Canadá en algunos aspectos del T-MEC antes de diciembre, pero aclaró que los puntos más complejos —especialmente las <b>reglas de origen en el sector automotriz</b>— se resolverán en 2027. Hoy se realiza la reunión cumbre con Sheinbaum en Palacio Nacional. También se abordará el alistamiento de aranceles para 60 países que Washington prepara.</div>
+            <div class="ni_"><b>Impacto MX:</b> Reducción de aranceles al acero y aluminio es la prioridad mexicana. Cada declaración post-reunión moverá el tipo de cambio.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sl">Mercados Globales — Tech Earnings</div>
+        <div class="nw">
+          <div class="nb- nb-gd"></div>
+          <div class="ni">
+            <div class="ne">
+              <span class="nt nt-gd">🟡 Atención · Wall Street</span>
+              <span class="ntime">Wall Street — 23 jul 2026</span>
+            </div>
+            <div class="nh">Wall St abre mixto/cauteloso: Alphabet ya reportó, Tesla e Intel publican resultados hoy tras el cierre</div>
+            <div class="nb_">Los mercados operan con cautela el jueves ante la <b>semana de resultados de las "Siete Magníficas"</b>. Alphabet presentó sus cifras Q2 el miércoles —con el foco en ingresos publicitarios e IA—. Hoy <b>Tesla e Intel</b> reportan tras el cierre, en sesión que definirá la dirección del Nasdaq en el tramo final de julio. El sector semiconductores lleva meses bajo presión por restricciones a exportaciones de chips a Asia. Micron y Sandisk protagonizaron el rally de la semana pasada (+12% y +14%).</div>
+            <div class="ni_"><b>Impacto MX:</b> Un resultado positivo de Tesla/Intel podría impulsar al IPC BMV el viernes. Intel tiene proveedores en Jalisco y Nuevo León.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEGURIDAD + DIPLOMACIA SHEINBAUM -->
+    <div class="g2">
+      <div>
+        <div class="sl">Seguridad Pública</div>
+        <div class="nw">
+          <div class="nb- nb-up"></div>
+          <div class="ni">
+            <div class="ne">
+              <span class="nt nt-up">🟢 Positivo · Seguridad</span>
+              <span class="ntime">CDMX — Mañanera 22 jul</span>
+            </div>
+            <div class="nh">Homicidios dolosos en Estado de México caen 56% en casi dos años de estrategia de seguridad</div>
+            <div class="nb_">La estrategia de seguridad implementada desde septiembre de 2024 redujo los homicidios dolosos en el Estado de México de un promedio de <b>6.6 casos diarios a 2.8</b>, una caída del 56% a junio de 2026. Asimismo se registró una reducción del <b>40% en delitos de alto impacto</b> en la entidad. Sheinbaum subrayó la política de "cero impunidad" para funcionarios investigados.</div>
+            <div class="ni_"><b>Contexto:</b> El EdoMex es la entidad más poblada del país. La caída representa el mayor avance en seguridad de la actual administración.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sl">Diplomacia &amp; Política Interior</div>
+        <div class="gc" style="gap:7px;">
+          <div class="nw">
+            <div class="nb- nb-dn"></div>
+            <div class="ni">
+              <div class="ne">
+                <span class="nt nt-dn">🔴 Alerta · Aranceles</span>
+                <span class="ntime">Washington — 22 jul</span>
+              </div>
+              <div class="nh">EE.UU. alista aranceles para 60 países; Sheinbaum confía en que México no será incluido</div>
+              <div class="nb_">El representante comercial Greer confirmó que Washington prepara una nueva ronda de gravámenes dirigida a 60 naciones. Sheinbaum declaró confiar en que México no será incluido dado el nivel histórico del intercambio bilateral ($839B). El escenario pesa sobre el peso como riesgo latente durante la semana de negociación.</div>
+            </div>
+          </div>
+          <div class="nw">
+            <div class="nb- nb-jd"></div>
+            <div class="ni">
+              <div class="ne">
+                <span class="nt nt-jd">🟢 Educación · Tech</span>
+                <span class="ntime">CDMX — semana 21 jul</span>
+              </div>
+              <div class="nh">UNAM y foros Sheinbaum: regulación celulares e IA en menores avanza hacia iniciativa legislativa</div>
+              <div class="nb_">Los foros nacionales impulsados por la SEP avanzan en Nuevo León, Chiapas y Guerrero. El debate sobre regulación de redes sociales, IA y uso de celulares en escuelas reunió a especialistas, padres y jóvenes. La iniciativa se presentará al Congreso en el período ordinario de otoño 2026.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WATCH BOX -->
+    <div class="watch">
+      <div class="sl" style="margin-bottom:7px;">Puntos a vigilar hoy y esta semana</div>
+      <div class="w-g">
+        <div class="w-i"><b>Greer–Sheinbaum (hoy):</b> La reunión en Palacio Nacional es el evento macro más relevante de la semana. Declaración conjunta definirá trayectoria del peso.</div>
+        <div class="w-i"><b>Tesla e Intel (post-cierre):</b> Resultados Q2 moverán al Nasdaq esta noche. Intel tiene cadenas de suministro en México — resultado positivo = IPC alcista viernes.</div>
+        <div class="w-i"><b>El Mayo $15B:</b> La respuesta diplomática de EE.UU. a la solicitud de México sobre el decomiso puede generar fricción adicional esta semana.</div>
+        <div class="w-i"><b>Petróleo $89-90:</b> Brent rozando $90/bbl. Si cruza ese umbral, presión inflacionaria en costos logísticos y manufacturas en México.</div>
+        <div class="w-i"><b>T-MEC acuerdos:</b> Greer dijo "fines de 2026" pero reglas de origen hasta 2027. ¿Qué queda para esta semana? Acero, aluminio y calendario de autos.</div>
+        <div class="w-i"><b>Aranceles 60 países:</b> Lista no publicada aún. Si México aparece, el peso podría depreciarse más del 2% en una sesión.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pf">
+    <div class="pf-s">Fuentes: Infobae MX · El Imparcial · Milenio · El Universal · Yahoo Finance ES · Sin Embargo · Incomex · CNN Español · Investing.com MX · La Silla Rota · Diario del Yaqui · El Siglo de Torreón · XTB</div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="font-size:6.5px;color:var(--txf);">Datos indicativos · No constituyen asesoría de inversión</div>
+      <div class="pf-p">2 / 2</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function spark(id, data, col) {
+  const c = document.getElementById(id);
+  if (!c) return;
+  const dpr = window.devicePixelRatio || 1, w = c.offsetWidth || 150, h = 24;
+  c.width = w * dpr; c.height = h * dpr;
+  const x = c.getContext('2d');
+  x.scale(dpr, dpr);
+  const mn = Math.min(...data), mx = Math.max(...data), rng = mx - mn || 1;
+  const pts = data.map((v, i) => ({ x: (i / (data.length - 1)) * w, y: h - ((v - mn) / rng) * (h - 5) - 2 }));
+  const g = x.createLinearGradient(0, 0, 0, h);
+  g.addColorStop(0, col + '38'); g.addColorStop(1, col + '00');
+  x.beginPath(); x.moveTo(pts[0].x, h);
+  pts.forEach(p => x.lineTo(p.x, p.y));
+  x.lineTo(pts[pts.length-1].x, h); x.closePath();
+  x.fillStyle = g; x.fill();
+  x.beginPath();
+  pts.forEach((p, i) => i === 0 ? x.moveTo(p.x, p.y) : x.lineTo(p.x, p.y));
+  x.strokeStyle = col; x.lineWidth = 1.5; x.lineJoin = 'round'; x.stroke();
+  const L = pts[pts.length-1];
+  x.beginPath(); x.arc(L.x, L.y, 2.5, 0, Math.PI * 2);
+  x.fillStyle = col; x.fill();
+}
+
+window.addEventListener('load', () => {
+  const cs = getComputedStyle(document.documentElement);
+  const up = cs.getPropertyValue('--up').trim() || '#26CC78';
+  const dn = cs.getPropertyValue('--dn').trim() || '#E63636';
+  const jd = cs.getPropertyValue('--jade').trim() || '#00BAAA';
+  // USD/MXN bajando (peso fortaleciéndose) — tendencia 10 días
+  spark('sp1', [17.72, 17.60, 17.50, 17.60, 17.53, 17.55, 17.46, 17.42, 17.40, 17.38], up);
+  // EUR/MXN — ligera baja
+  spark('sp2', [20.28, 20.18, 20.14, 20.22, 20.18, 20.12, 20.10, 20.09, 20.07, 20.05], jd);
+  // EUR/USD — estable
+  spark('sp3', [1.155, 1.153, 1.155, 1.154, 1.153, 1.155, 1.154, 1.153, 1.154, 1.153], dn);
+});
+</script>
+</body>
+</html>
