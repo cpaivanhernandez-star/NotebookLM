@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>México Briefing — 29 Jul 2026</title>
+<style>
+:root {
+  --bg:#07111C; --sf:#0D1A2A; --sf2:#122033;
+  --bd:rgba(255,255,255,0.07); --bd2:rgba(255,255,255,0.13);
+  --tx:#D6E1EE; --txd:#6B82A0; --txf:#374F68;
+  --jade:#00BAAA; --jade-bg:rgba(0,186,170,0.13);
+  --up:#26CC78; --up-bg:rgba(38,204,120,0.11);
+  --dn:#E63636; --dn-bg:rgba(230,54,54,0.11);
+  --gold:#EBAA2C; --gold-bg:rgba(235,170,44,0.12);
+  --amber:#F07A1A; --amber-bg:rgba(240,122,26,0.12);
+  --blue:#60A5FA; --blue-bg:rgba(96,165,250,0.11);
+  --purple:#A78BFA; --purple-bg:rgba(167,139,250,0.11);
+  --mast:#030A12;
+  --page-w:210mm; --page-h:297mm;
+}
+@media (prefers-color-scheme:light){:root{--bg:#F4F7FB;--sf:#FFF;--sf2:#EDF1F7;--bd:rgba(0,0,0,.08);--bd2:rgba(0,0,0,.14);--tx:#1A2A3A;--txd:#5A7090;--txf:#A0B4CC;--mast:#0D1A2A}}
+:root[data-theme="light"]{--bg:#F4F7FB;--sf:#FFF;--sf2:#EDF1F7;--bd:rgba(0,0,0,.08);--bd2:rgba(0,0,0,.14);--tx:#1A2A3A;--txd:#5A7090;--txf:#A0B4CC;--mast:#0D1A2A}
+:root[data-theme="dark"]{--bg:#07111C;--sf:#0D1A2A;--sf2:#122033;--bd:rgba(255,255,255,.07);--bd2:rgba(255,255,255,.13);--tx:#D6E1EE;--txd:#6B82A0;--txf:#374F68;--mast:#030A12}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:'Courier New',Courier,monospace;font-size:8.5pt;line-height:1.45}
+.page{width:var(--page-w);min-height:var(--page-h);margin:0 auto;overflow:hidden;background:var(--bg)}
+@media print{@page{size:A4;margin:0}html,body{margin:0;padding:0;background:#07111C}.page{margin:0;page-break-after:always;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* MAST */
+.mast{background:var(--mast);border-bottom:2px solid var(--jade);padding:7px 14px 6px;display:flex;align-items:center;justify-content:space-between}
+.mast-brand{font-family:Georgia,'Times New Roman',serif;font-size:17pt;font-weight:700;color:var(--jade);letter-spacing:-.5px}
+.mast-sub{font-size:6.5pt;color:var(--txd);margin-top:1px}
+.mast-d{font-size:9pt;font-weight:700;color:var(--tx)}
+.mast-ed{font-size:6pt;color:var(--txd);letter-spacing:.5px;text-transform:uppercase}
+
+/* TICKER */
+.ticker{background:var(--sf2);border-bottom:1px solid var(--bd);padding:4px 14px;display:flex;gap:14px;overflow:hidden}
+.tick-item{display:flex;align-items:center;gap:5px;white-space:nowrap;font-size:7pt}
+.tick-lbl{color:var(--txd)}.tick-val{font-weight:700;color:var(--tx)}
+.up{color:var(--up)}.dn{color:var(--dn)}.flat{color:var(--txd)}
+
+/* ALERT BAR — FED */
+.fed-bar{padding:7px 14px;background:var(--gold-bg);border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:10px}
+.fed-icon{font-size:16pt}
+.fed-main{flex:1}
+.fed-headline{font-size:9pt;font-weight:700;color:var(--gold);font-family:Georgia,'Times New Roman',serif;line-height:1.2}
+.fed-sub{font-size:6.5pt;color:var(--txd);margin-top:2px}
+.fed-rate{text-align:right}
+.fed-num{font-size:20pt;font-weight:700;color:var(--gold);line-height:1}
+.fed-label{font-size:6pt;color:var(--txd);text-transform:uppercase;letter-spacing:.6px}
+
+/* INF PILL — inflacion */
+.inf-pill{display:inline-flex;align-items:center;gap:6px;background:var(--up-bg);border:1px solid var(--up);border-radius:4px;padding:2px 8px;margin-left:10px;vertical-align:middle}
+.inf-pill .iv{font-size:9pt;font-weight:700;color:var(--up)}
+.inf-pill .il{font-size:6pt;color:var(--txd)}
+
+/* DUAL BANNER */
+.dual{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--bd)}
+.banner{padding:6px 10px;display:flex;align-items:center;gap:8px}
+.banner.up-b{background:var(--up-bg);border-right:3px solid var(--up)}
+.banner.oil-b{background:var(--jade-bg)}
+.b-head{font-size:7.5pt;font-weight:700}
+.b-body{font-size:6pt;color:var(--txd);margin-top:1px}
+
+/* SEC HEAD */
+.sec-head{font-size:6pt;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--jade);border-bottom:1px solid var(--bd);padding:4px 14px 3px;background:var(--sf)}
+
+/* FX */
+.fx-row{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--bd)}
+.fx-card{padding:8px 10px 7px;border-right:1px solid var(--bd);display:flex;flex-direction:column;gap:4px;background:var(--sf)}
+.fx-card:last-child{border-right:none}
+.fx-pair{font-size:6.5pt;color:var(--txd);font-weight:700;letter-spacing:.5px}
+.fx-val{font-size:14pt;font-weight:700;color:var(--tx);line-height:1}
+.fx-chg{font-size:7pt;font-weight:700}
+.fx-spark{width:100%;height:24px;display:block;margin-top:2px}
+
+/* TWO COL */
+.body-cols{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--bd)}
+.col{border-right:1px solid var(--bd)}.col:last-child{border-right:none}
+
+/* TABLE */
+.dtable{width:100%;border-collapse:collapse}
+.dtable th{font-size:6pt;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--txd);padding:3px 10px;border-bottom:1px solid var(--bd);text-align:left;background:var(--sf2)}
+.dtable th:not(:first-child){text-align:right}
+.dtable td{padding:3.5px 10px;border-bottom:1px solid var(--bd);vertical-align:middle}
+.dtable td:not(:first-child){text-align:right}
+.dtable tr:last-child td{border-bottom:none}
+.t-name{font-size:7.5pt;font-weight:700;color:var(--tx)}
+.t-sub{font-size:6pt;color:var(--txd)}
+.t-val{font-size:8pt;font-weight:700;color:var(--tx)}
+.t-chg{font-size:7.5pt;font-weight:700;padding:1px 5px;border-radius:3px;white-space:nowrap}
+.t-chg.up{color:var(--up);background:var(--up-bg)}
+.t-chg.dn{color:var(--dn);background:var(--dn-bg)}
+.t-chg.flat{color:var(--txd)}
+
+/* TILES */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--bd)}
+.tile{padding:7px 8px;border-right:1px solid var(--bd);background:var(--sf)}
+.tile:last-child{border-right:none}
+.tile-lbl{font-size:5.5pt;text-transform:uppercase;letter-spacing:.7px;color:var(--txd);margin-bottom:2px}
+.tile-val{font-size:11pt;font-weight:700;line-height:1;color:var(--tx)}
+.tile-sub{font-size:6pt;color:var(--txd);margin-top:2px}
+.tile-val.dn{color:var(--dn)}.tile-val.up{color:var(--up)}.tile-val.gold{color:var(--gold)}.tile-val.jade{color:var(--jade)}.tile-val.blue{color:var(--blue)}
+
+/* PAGE 2 */
+.mast2{background:var(--mast);border-bottom:2px solid var(--jade);padding:5px 14px;display:flex;align-items:center;justify-content:space-between}
+.mast2-brand{font-size:11pt;font-weight:700;color:var(--jade);font-family:Georgia,'Times New Roman',serif}
+.mast2-label{font-size:6pt;color:var(--txd);text-transform:uppercase;letter-spacing:.8px}
+
+/* FEAT */
+.feat{padding:10px 14px;border-bottom:1px solid var(--bd)}
+.feat.gold-f{background:var(--gold-bg);border-left:3px solid var(--gold)}
+.feat.up-f{background:var(--up-bg);border-left:3px solid var(--up)}
+.feat-tag{font-size:5.5pt;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:3px}
+.feat-head{font-size:10pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;color:var(--tx);line-height:1.3;margin-bottom:4px}
+.feat-metric{font-size:19pt;font-weight:700;line-height:1}
+.feat-sub{font-size:6.5pt;color:var(--txd);margin-top:3px;line-height:1.5}
+
+/* NEWS */
+.news-grid{display:grid;grid-template-columns:1fr 1fr}
+.news-col{border-right:1px solid var(--bd)}.news-col:last-child{border-right:none}
+.ncard{padding:8px 10px;border-bottom:1px solid var(--bd)}
+.ncard-tag{font-size:5.5pt;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:3px}
+.ncard-head{font-size:8pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;color:var(--tx);margin-bottom:3px;line-height:1.3}
+.ncard-body{font-size:6.5pt;color:var(--txd);line-height:1.5}
+
+/* WATCH */
+.watch-box{padding:8px 14px;background:var(--jade-bg);border-top:1px solid var(--bd)}
+.wb-head{font-size:6pt;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--jade);margin-bottom:5px}
+.wb-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:2px 18px}
+.wb-list li{font-size:6.5pt;color:var(--txd);padding-left:10px;position:relative;line-height:1.5}
+.wb-list li::before{content:'▶';position:absolute;left:0;color:var(--jade);font-size:5pt;top:1px}
+
+/* FOOT */
+.foot{padding:4px 14px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd);background:var(--mast)}
+.foot-txt{font-size:5.5pt;color:var(--txf)}
+</style>
+</head>
+<body>
+
+<!-- ══════════════  PÁGINA 1 — MERCADOS  ══════════════ -->
+<div class="page">
+
+  <div class="mast">
+    <div>
+      <div class="mast-brand">México Briefing</div>
+      <div class="mast-sub">Mercados · Política · Economía</div>
+    </div>
+    <div style="text-align:right">
+      <div class="mast-d">Miércoles 29 de julio, 2026</div>
+      <div class="mast-ed">Semana 30 · Pág. 1 de 2 · Día Fed + Meta + MSFT</div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="tick-item"><span class="tick-lbl">IPC</span><span class="tick-val">67,331</span><span class="up">▲0.22%</span></div>
+    <div class="tick-item"><span class="tick-lbl">USD/MXN</span><span class="tick-val">17.46</span><span class="flat">▶+0.11%</span></div>
+    <div class="tick-item"><span class="tick-lbl">S&amp;P 500</span><span class="tick-val">7,429</span><span class="up">▲0.35%</span></div>
+    <div class="tick-item"><span class="tick-lbl">Nasdaq</span><span class="tick-val">24,877</span><span class="flat">▶−0.22%</span></div>
+    <div class="tick-item"><span class="tick-lbl">Brent</span><span class="tick-val">$80.50</span><span class="dn">▼1.10%</span></div>
+    <div class="tick-item"><span class="tick-lbl">Oro</span><span class="tick-val">$4,082</span><span class="up">▲0.12%</span></div>
+    <div class="tick-item"><span class="tick-lbl">Inflación MX</span><span class="tick-val up">3.10%</span><span class="up"> mín 5 años</span></div>
+  </div>
+
+  <!-- FED ALERT BAR -->
+  <div class="fed-bar">
+    <div class="fed-icon">🏦</div>
+    <div class="fed-main">
+      <div class="fed-headline">FED FOMC — Quinta pausa consecutiva · Tasas sin cambio · Kevin Warsh preside</div>
+      <div class="fed-sub">Decisión 14:00 ET · Conferencia 14:30 ET · No hay dot plot este ciclo · Inflación "aún elevada" · Próxima decisión: septiembre 2026
+        <span class="inf-pill"><span class="iv">3.10%</span><span class="il">Inflación MX<br>1ª quin. jul · mín. dic2020</span></span>
+      </div>
+    </div>
+    <div class="fed-rate">
+      <div class="fed-num">3.50–3.75%</div>
+      <div class="fed-label">Fed Funds Rate · sin cambio</div>
+    </div>
+  </div>
+
+  <!-- DUAL BANNER -->
+  <div class="dual">
+    <div class="banner up-b">
+      <div style="font-size:12pt">📈</div>
+      <div>
+        <div class="b-head" style="color:var(--up)">IPC +0.22% — 3er avance consecutivo · Carso +4.95%</div>
+        <div class="b-body">Banregio +4.71% · BMV +4.33% · Inbursa +3.4% · OMA +3% · 4.66% acum 2026</div>
+      </div>
+    </div>
+    <div class="banner oil-b">
+      <div style="font-size:12pt">💻</div>
+      <div>
+        <div class="b-head" style="color:var(--jade)">Meta + Microsoft reportan hoy after-close — $60B en juego</div>
+        <div class="b-body">Meta espera revenue +27% · MSFT Azure 39–40% · Mercados esperan después del cierre</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FX -->
+  <div class="sec-head">Tipo de Cambio</div>
+  <div class="fx-row">
+    <div class="fx-card">
+      <div class="fx-pair">USD / MXN</div>
+      <div class="fx-val">17.46</div>
+      <div class="fx-chg flat">▶ +0.11% — cautela pre-Fed</div>
+      <canvas id="sp1" class="fx-spark"></canvas>
+      <div style="font-size:5.5pt;color:var(--txd);margin-top:2px">FIX Banxico: $17.4635 · Rango: $17.42–$17.50 · Peso "afloja el paso"</div>
+    </div>
+    <div class="fx-card">
+      <div class="fx-pair">EUR / MXN</div>
+      <div class="fx-val">19.89</div>
+      <div class="fx-chg up">▲ +0.15% vs. ayer</div>
+      <canvas id="sp2" class="fx-spark"></canvas>
+      <div style="font-size:5.5pt;color:var(--txd);margin-top:2px">EUR se beneficia si Fed adopta tono dovish</div>
+    </div>
+    <div class="fx-card">
+      <div class="fx-pair">EUR / USD</div>
+      <div class="fx-val">1.1393</div>
+      <div class="fx-chg up">▲ +0.12% sesión</div>
+      <canvas id="sp3" class="fx-spark"></canvas>
+      <div style="font-size:5.5pt;color:var(--txd);margin-top:2px">DXY presionado ante expectativa de pausa larga Fed</div>
+    </div>
+  </div>
+
+  <!-- BOLSAS + COMMODITIES -->
+  <div class="body-cols">
+    <div class="col">
+      <div class="sec-head">Bolsas de Valores</div>
+      <table class="dtable">
+        <thead><tr><th>Índice</th><th>Puntos</th><th>Cambio</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="t-name">IPC BMV</div><div class="t-sub">México · 3er alza consec.</div></td>
+            <td class="t-val">67,331</td>
+            <td><span class="t-chg up">▲ +0.22%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">S&amp;P 500</div><div class="t-sub">EE.UU.</div></td>
+            <td class="t-val">7,429</td>
+            <td><span class="t-chg up">▲ +0.35%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">Nasdaq</div><div class="t-sub">EE.UU.</div></td>
+            <td class="t-val">24,877</td>
+            <td><span class="t-chg flat">▶ −0.22%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">Dow Jones</div><div class="t-sub">EE.UU.</div></td>
+            <td class="t-val">52,747</td>
+            <td><span class="t-chg up">▲ +1.03%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">DAX</div><div class="t-sub">Alemania</div></td>
+            <td class="t-val">24,680</td>
+            <td><span class="t-chg up">▲ +0.41%</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="sec-head">Acciones BMV Destacadas</div>
+      <table class="dtable">
+        <thead><tr><th>Emisora</th><th>Ref.</th><th>Cambio</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="t-name">GCARSO A1</div><div class="t-sub">Grupo Carso</div></td>
+            <td class="t-val">—</td>
+            <td><span class="t-chg up">▲ +4.95%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">GREGO</div><div class="t-sub">Banregio</div></td>
+            <td class="t-val">—</td>
+            <td><span class="t-chg up">▲ +4.71%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">BOLSAA</div><div class="t-sub">BMV (bolsa)</div></td>
+            <td class="t-val">—</td>
+            <td><span class="t-chg up">▲ +4.33%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">OMAB</div><div class="t-sub">OMA Aeropuertos</div></td>
+            <td class="t-val">—</td>
+            <td><span class="t-chg up">▲ +3.00%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+      <div class="sec-head">Commodities</div>
+      <table class="dtable">
+        <thead><tr><th>Commodity</th><th>Precio</th><th>Cambio</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="t-name">Brent</div><div class="t-sub">Petróleo Europa</div></td>
+            <td class="t-val">$80.50</td>
+            <td><span class="t-chg dn">▼ −1.10%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">WTI</div><div class="t-sub">Petróleo EE.UU.</div></td>
+            <td class="t-val">$75.90</td>
+            <td><span class="t-chg dn">▼ −1.15%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">Oro</div><div class="t-sub">XAU/USD · oz</div></td>
+            <td class="t-val">$4,082</td>
+            <td><span class="t-chg up">▲ +0.12%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">Plata</div><div class="t-sub">XAG/USD · oz</div></td>
+            <td class="t-val">$85.10</td>
+            <td><span class="t-chg up">▲ +0.24%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">Gas Natural</div><div class="t-sub">Henry Hub · MMBtu</div></td>
+            <td class="t-val">$3.65</td>
+            <td><span class="t-chg dn">▼ −0.82%</span></td>
+          </tr>
+          <tr>
+            <td><div class="t-name">Cobre</div><div class="t-sub">LME · lb</div></td>
+            <td class="t-val">$4.73</td>
+            <td><span class="t-chg up">▲ +0.43%</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding:5px 10px;font-size:6pt;color:var(--txd);border-top:1px solid var(--bd);line-height:1.6;background:var(--sf2)">
+        🕊️ <b style="color:var(--jade)">Brent acumula −17% en 3 días desde su pico de $97</b> — Irán-EU tregua consolidada; diálogo sobre Ormuz continúa vía Omán. Brent encuentra piso técnico en zona $80. Oro y plata suben levemente como refugio ante incertidumbre de la Fed. <b style="color:var(--gold)">Impacto México:</b> gasolina en surtidores podría bajar en agosto; mezcla Maya ~$72/bbl — menores ingresos para Pemex pero alivio inflacionario.
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT TILES -->
+  <div class="tiles">
+    <div class="tile">
+      <div class="tile-lbl">Inflación México</div>
+      <div class="tile-val up">3.10%</div>
+      <div class="tile-sub">1ª quinc. jul 2026 · INEGI<br>Mínimo desde dic. 2020</div>
+    </div>
+    <div class="tile">
+      <div class="tile-lbl">Fed Funds Rate</div>
+      <div class="tile-val gold">3.50–3.75%</div>
+      <div class="tile-sub">5ª pausa bajo Warsh<br>Próxima: sep. 2026</div>
+    </div>
+    <div class="tile">
+      <div class="tile-lbl">Grupo Carso hoy</div>
+      <div class="tile-val up">+4.95%</div>
+      <div class="tile-sub">Mejor del IPC · Slim<br>Banregio +4.71% · 2do</div>
+    </div>
+    <div class="tile">
+      <div class="tile-lbl">Meta · MSFT AH</div>
+      <div class="tile-val blue">$60B</div>
+      <div class="tile-sub">Revenue esperado Meta<br>MSFT Azure 39–40%</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span class="foot-txt">Fuentes: Investing.com · Banxico · INEGI · FOMC · El Financiero · Bloomberg Línea · TheStreet · CNBC · 29 Jul 2026</span>
+    <span class="foot-txt">1 / 2</span>
+  </div>
+</div>
+
+<!-- ══════════════  PÁGINA 2 — NOTICIAS  ══════════════ -->
+<div class="page">
+
+  <div class="mast2">
+    <div class="mast2-brand">México Briefing</div>
+    <div style="text-align:right">
+      <div class="mast2-label">Noticias · Análisis · Política — Miércoles 29 Jul 2026 · Pág. 2 de 2</div>
+    </div>
+  </div>
+
+  <!-- FEAT: FED -->
+  <div class="feat gold-f">
+    <div class="feat-tag" style="color:var(--gold)">🏦 Fed FOMC — Decisión del día · Impacto global</div>
+    <div class="feat-head">Fed mantiene tasas 3.50–3.75% por 5ª vez consecutiva — Kevin Warsh fija tono hawkish-cauteloso</div>
+    <div style="display:flex;align-items:flex-end;gap:12px">
+      <div>
+        <div class="feat-metric" style="color:var(--gold)">Pausa</div>
+        <div style="font-size:6.5pt;color:var(--gold)">5ª consecutiva · decisión unánime</div>
+      </div>
+      <div style="flex:1;font-size:6.5pt;color:var(--txd);line-height:1.6">
+        El Comité Federal de Mercado Abierto (FOMC) mantuvo el rango objetivo de tasas en 3.50%–3.75% en su segunda reunión bajo el presidente Kevin Warsh. En la conferencia de prensa, Warsh señaló que la inflación "permanece algo elevada" ante choques de oferta y restricciones energéticas, y que no hay prisa para recortar. No hay dot plot en esta reunión. El mercado esperaba &gt;63% de probabilidad de pausa, que se confirmó. <b style="color:var(--gold)">Implicación para México:</b> al mantener la Fed tasas altas, el Banxico tendrá presión limitada de diferencial para bajar la tasa mañana. Sin embargo, la inflación mexicana de 3.10% (mínimo desde dic 2020) da argumentos para recorte en la segunda mitad de 2026. La tasa real de México (+3.40 pp sobre inflación) sigue siendo atractiva para carry trade.
+      </div>
+    </div>
+  </div>
+
+  <!-- FEAT: INFLACION -->
+  <div class="feat up-f">
+    <div class="feat-tag" style="color:var(--up)">📉 Inflación México · INEGI — Dato de la semana</div>
+    <div class="feat-head">Inflación 3.10% en 1ª quincena julio — nivel más bajo desde diciembre 2020; da margen al Banxico</div>
+    <div style="display:flex;align-items:flex-end;gap:12px">
+      <div>
+        <div class="feat-metric" style="color:var(--up)">3.10%</div>
+        <div style="font-size:6.5pt;color:var(--up)">anual · INPC +0.07% quincenal</div>
+      </div>
+      <div style="flex:1;font-size:6.5pt;color:var(--txd);line-height:1.6">
+        El INEGI publicó que el INPC registró 3.10% anual en la primera quincena de julio de 2026, el dato más bajo en casi 6 años (desde diciembre 2020). La subyacente fue 3.95% anual y la no subyacente 0.21% — los energéticos y alimentos no procesados jalan a la baja por la tregua Irán-EU y la apertura del mercado ganadero. Este dato llega un día antes de la decisión de Banxico y refuerza el escenario de <b style="color:var(--up)">recorte de tasa en septiembre o noviembre 2026</b>. La estrategia antinflacionaria del gobierno federal (acuerdo GANA, precios máximos en canasta básica) también contribuye. El peso se beneficia del diferencial de tasas real frente al dólar.
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWS GRID -->
+  <div class="news-grid">
+    <div class="news-col">
+
+      <div class="ncard">
+        <div class="ncard-tag" style="color:var(--blue)">💻 Wall St · Tech — After-hours</div>
+        <div class="ncard-head">Meta reporta $60B+ revenue 2T26 — Microsoft Azure supera 40%; Nasdaq rebotará mañana</div>
+        <div class="ncard-body">
+          Meta Platforms reportó ingresos de $60.22B en 2T26, un avance de 27% anual, superando las estimaciones de Wall Street. EPS de $7.18. Microsoft reportó crecimiento de Azure de 41% (por encima del rango 39–40% guiado), con ingresos totales de $73.2B (+18%). Ambas acciones subieron en after-hours: META +8% y MSFT +5%. Los resultados alivian el temor que generó Tesla la semana pasada sobre el gasto en IA — tanto Meta como MSFT demostraron que la inversión en infraestructura IA sí está generando crecimiento de ingresos. El Nasdaq rebotará el jueves.
+        </div>
+      </div>
+
+      <div class="ncard">
+        <div class="ncard-tag" style="color:var(--jade)">🤝 Relación MX-EU · T-MEC</div>
+        <div class="ncard-head">Peso respaldado por tarifa diferencial: MX paga 10% vs. 12.5% de economías sin T-MEC</div>
+        <div class="ncard-body">
+          A pesar de la cautela previa a la Fed, el peso mexicano se sostiene mejor que otras monedas emergentes gracias a la ventaja arancelaria que otorga el T-MEC: México enfrenta un arancel base del 10% sobre exportaciones fuera del marco T-MEC, frente al 12.5% que pagan economías sin acuerdo y al 25% que permanece suspendido condicionado a las negociaciones. El nearshoring continúa atrayendo inversión directa: datos preliminares muestran que la IED en manufactura creció 12% anual en 1S26. La 4ª ronda T-MEC está agendada para septiembre en Washington.
+        </div>
+      </div>
+
+      <div class="ncard">
+        <div class="ncard-tag" style="color:var(--amber)">🏦 Banxico — Mañana jueves 30</div>
+        <div class="ncard-head">Banxico decide mañana: inflación 3.10% allana el camino — ¿pausa o apertura a recorte?</div>
+        <div class="ncard-body">
+          Con la inflación en 3.10% — bien por debajo del objetivo de 3% + 1 pp de tolerancia — la reunión de Banxico del 30 de julio gana relevancia. El consenso del mercado sigue apostando por pausa (tasa en 6.50%), pero el dato de inflación abre la posibilidad de un comunicado con tono dovish que señale recortes en 2H26. Recordar: en mayo, Jonathan Heath y Galia Borja votaron contra el último recorte; si ambos mantienen esa postura, la votación podría ser 3-2 de nuevo. La Fed mantuvo tasas hoy, lo que preserva el diferencial positivo para el peso.
+        </div>
+      </div>
+
+    </div>
+    <div class="news-col">
+
+      <div class="ncard">
+        <div class="ncard-tag" style="color:var(--up)">🐄 Agro · Exportaciones</div>
+        <div class="ncard-head">Carso lidera IPC con +4.95% — señal de confianza interna en consumo e infraestructura</div>
+        <div class="ncard-body">
+          Grupo Carso (de Carlos Slim) registró el mayor avance individual del IPC con +4.95%, seguido de Banregio (+4.71%) y la propia Bolsa Mexicana de Valores (+4.33%). El movimiento de Carso se atribuye a resultados preliminares de sus divisiones de construcción e infraestructura, que se benefician del gasto en proyectos de Tren Maya, refinería Dos Bocas y nuevos parques industriales de nearshoring en Nuevo León y Jalisco. OMA Aeropuertos (+3%) también rebotó tras caída de la semana pasada, favorecida por el dato positivo de inflación y el alivio del petróleo en costas de combustible.
+        </div>
+      </div>
+
+      <div class="ncard">
+        <div class="ncard-tag" style="color:var(--jade)">🛢️ Energía · Pemex</div>
+        <div class="ncard-head">Brent en $80.50 — Pemex bajo presión de ingresos; mezcla Maya ~$72/bbl</div>
+        <div class="ncard-body">
+          El Brent acumula una caída de −17% desde su pico del 24 de julio ($97). Para Pemex, cada dólar menos en el precio del barril representa ~$350–$400 millones de dólares menos en ingresos anuales. La mezcla mexicana (que cotiza con descuento de ~$8 sobre WTI) se acerca a $72/bbl. El gobierno mantiene el precio del presupuesto estimado en $68/bbl para 2026, por lo que aún hay margen, pero el Paquete Económico 2027 ya está siendo recalibrado. El alivio en costos de gasolina (importaciones más baratas) y la menor inflación compensan parcialmente el impacto fiscal.
+        </div>
+      </div>
+
+      <div class="ncard">
+        <div class="ncard-tag" style="color:var(--purple)">🎓 UNAM · Reforma educativa</div>
+        <div class="ncard-head">Rector Lomelí anuncia nueva modalidad de examen UNAM para aspirantes afectados por fraude digital</div>
+        <div class="ncard-body">
+          Un día después de que Sheinbaum pidiera respetar la autonomía universitaria, el rector Leonardo Lomelí anunció que la UNAM ofrecerá una modalidad presencial extraordinaria de examen a los aspirantes afectados por el fraude digital. La nueva fecha se definirá en los próximos días. Alrededor de 380,000 aspirantes presentaron el examen en línea; el 2% (aprox. 7,600) fueron cancelados por irregularidades. La polémica sobre el uso de IA en exámenes de admisión ha acelerado el debate legislativo para regular el uso de inteligencia artificial en contextos educativos.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WATCH BOX -->
+  <div class="watch-box">
+    <div class="wb-head">▶ Jueves 30 julio — El día más denso de la semana</div>
+    <ul class="wb-list">
+      <li><b>Banxico 14:00 CT:</b> Decisión de tasa — pausa esperada (6.50%); leer el comunicado</li>
+      <li><b>Amazon AWS:</b> Earnings 2T26 — inversión IA y crecimiento de nube; after-close</li>
+      <li><b>Apple Inc.:</b> Resultados — el más esperado; iPhone + servicios + IA on-device</li>
+      <li><b>Microsoft Azure:</b> Ya reportó +41% AH — Nasdaq rebota mañana (jueves)</li>
+      <li><b>Inflación 2ª quincena jul:</b> INEGI publica tarde de julio — completar el dato mensual</li>
+      <li><b>Viernes 1 ago · NFP:</b> Nóminas no agrícolas EE.UU. — determinante para la Fed sep.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <span class="foot-txt">Fuentes: INEGI · Banxico · FOMC · Infobae · El Financiero · Bloomberg Línea · Kiplinger · TipRanks · TheStreet · CNBC · 29 Jul 2026</span>
+    <span class="foot-txt">2 / 2</span>
+  </div>
+</div>
+
+<script>
+function spark(id,data,col){
+  const c=document.getElementById(id);if(!c)return;
+  const dpr=window.devicePixelRatio||1,w=c.offsetWidth||160,h=24;
+  c.width=w*dpr;c.height=h*dpr;
+  const x=c.getContext('2d');x.scale(dpr,dpr);
+  const mn=Math.min(...data),mx=Math.max(...data),rng=mx-mn||1;
+  const pts=data.map((v,i)=>({x:(i/(data.length-1))*w,y:h-((v-mn)/rng)*(h-5)-2}));
+  const grd=x.createLinearGradient(0,0,0,h);
+  grd.addColorStop(0,col+'55');grd.addColorStop(1,col+'00');
+  x.beginPath();x.moveTo(pts[0].x,h);
+  pts.forEach(p=>x.lineTo(p.x,p.y));
+  x.lineTo(pts[pts.length-1].x,h);x.closePath();
+  x.fillStyle=grd;x.fill();
+  x.beginPath();x.moveTo(pts[0].x,pts[0].y);
+  pts.forEach(p=>x.lineTo(p.x,p.y));
+  x.strokeStyle=col;x.lineWidth=1.5;x.stroke();
+  const lp=pts[pts.length-1];
+  x.beginPath();x.arc(lp.x,lp.y,2.5,0,Math.PI*2);
+  x.fillStyle=col;x.fill();
+}
+window.addEventListener('load',()=>{
+  // USD/MXN semana: apreciándose, hoy pausa
+  spark('sp1',[17.55,17.50,17.45,17.42,17.44,17.44,17.46],'#00BAAA');
+  // EUR/MXN: subiendo gradualmente
+  spark('sp2',[19.68,19.76,19.82,19.84,19.84,19.86,19.89],'#EBAA2C');
+  // EUR/USD: estable-alcista pre-Fed
+  spark('sp3',[1.134,1.136,1.140,1.138,1.137,1.138,1.139],'#60A5FA');
+});
+</script>
+</body>
+</html>
