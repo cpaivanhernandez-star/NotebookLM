@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>México Briefing — Martes 4 de agosto 2026</title>
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07111C;--sf:#0D1A2A;--sf2:#122033;
+  --bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13);
+  --tx:#D6E1EE;--txd:#6B82A0;--txf:#374F68;
+  --jade:#00BAAA;--jade-bg:rgba(0,186,170,0.13);
+  --up:#26CC78;--up-bg:rgba(38,204,120,0.11);
+  --dn:#E63636;--dn-bg:rgba(230,54,54,0.11);
+  --gold:#EBAA2C;--gold-bg:rgba(235,170,44,0.12);
+  --amber:#F07A1A;--amber-bg:rgba(240,122,26,0.13);
+  --purple:#A78BFA;--purple-bg:rgba(167,139,250,0.12);
+  --cyan:#22D3EE;--cyan-bg:rgba(34,211,238,0.11);
+  --mast:#030A12;
+  --ff:'Courier New',Courier,monospace;
+  --fs:'Georgia','Times New Roman',serif;
+}
+@media(prefers-color-scheme:light){:root{
+  --bg:#F4F7FA;--sf:#FFFFFF;--sf2:#EBF0F6;
+  --bd:rgba(0,0,0,0.08);--bd2:rgba(0,0,0,0.15);
+  --tx:#1A2A3A;--txd:#5A7A9A;--txf:#A0B8D0;--mast:#1A2A3A;
+}}
+:root[data-theme="light"]{--bg:#F4F7FA;--sf:#FFFFFF;--sf2:#EBF0F6;--bd:rgba(0,0,0,0.08);--bd2:rgba(0,0,0,0.15);--tx:#1A2A3A;--txd:#5A7A9A;--txf:#A0B8D0;--mast:#1A2A3A}
+:root[data-theme="dark"]{--bg:#07111C;--sf:#0D1A2A;--sf2:#122033;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.13);--tx:#D6E1EE;--txd:#6B82A0;--txf:#374F68;--mast:#030A12}
+body{background:var(--bg);color:var(--tx);font-family:var(--ff);font-size:7.8pt;line-height:1.35;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+.page{width:210mm;min-height:297mm;max-height:297mm;overflow:hidden;background:var(--bg);position:relative;page-break-after:always}
+
+/* MASTHEAD */
+.mast{background:var(--mast);padding:7px 12px 6px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--jade)}
+.mast-title{font-family:var(--fs);font-size:14pt;font-weight:700;color:var(--jade);letter-spacing:-0.3px}
+.mast-sub{font-size:7pt;color:var(--txd);text-transform:uppercase;letter-spacing:1px;margin-left:8px}
+.mast-right{text-align:right}
+.mast-date{font-size:8pt;color:var(--tx);font-weight:600}
+.mast-edition{font-size:6.5pt;color:var(--txd);text-transform:uppercase;letter-spacing:.8px}
+.mast-badge{display:inline-block;background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple);border-radius:3px;font-size:5.5pt;padding:1px 5px;margin-left:6px;vertical-align:middle;font-weight:700;letter-spacing:.5px}
+
+/* PLTR / TOP BANNER */
+.top-alerts{display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--bd2)}
+.alert-card{padding:5px 10px;display:flex;align-items:center;gap:8px}
+.alert-card.pltr{background:linear-gradient(135deg,rgba(167,139,250,0.18) 0%,rgba(34,211,238,0.07) 100%);border-right:3px solid var(--purple)}
+.alert-card.ormuz{background:var(--amber-bg);border-right:none}
+.ac-icon{font-size:16pt;line-height:1;flex-shrink:0}
+.ac-body{}
+.ac-label{font-size:5.5pt;text-transform:uppercase;letter-spacing:.8px;color:var(--txd)}
+.ac-val{font-size:9pt;font-weight:700;line-height:1.2}
+.ac-val.purple{color:var(--purple)}
+.ac-val.amber{color:var(--amber)}
+.ac-detail{font-size:6pt;color:var(--txd);margin-top:1px}
+
+/* TICKER */
+.ticker-bar{background:var(--sf2);border-bottom:1px solid var(--bd2);padding:3px 10px;display:flex;gap:12px;overflow:hidden}
+.tick-item{display:flex;align-items:center;gap:4px;white-space:nowrap}
+.tick-lbl{font-size:6pt;color:var(--txd);text-transform:uppercase}
+.tick-val{font-size:7pt;font-weight:700}
+.tick-chg{font-size:6pt;font-weight:600;padding:1px 3px;border-radius:2px}
+.up{color:var(--up)}.dn{color:var(--dn)}.neu{color:var(--txd)}
+.up-bg{background:var(--up-bg)}.dn-bg{background:var(--dn-bg)}
+
+/* MAIN GRID */
+.main-grid{display:grid;grid-template-columns:62mm 1fr;gap:6px;padding:6px 10px}
+
+/* FX */
+.section-hdr{font-size:6pt;text-transform:uppercase;letter-spacing:1px;color:var(--txd);padding:2px 0 4px;border-bottom:1px solid var(--bd2);margin-bottom:4px}
+.fx-card{background:var(--sf);border:1px solid var(--bd2);border-radius:4px;padding:5px 7px;margin-bottom:4px}
+.fx-top{display:flex;justify-content:space-between;align-items:baseline}
+.fx-pair{font-size:7pt;font-weight:700;color:var(--jade)}
+.fx-rate{font-size:11pt;font-weight:700;line-height:1}
+.fx-chg{font-size:6.5pt;font-weight:600;padding:1px 4px;border-radius:2px;margin-left:4px}
+.fx-row{display:flex;justify-content:space-between;align-items:center;margin-top:3px}
+.fx-fix{font-size:6pt;color:var(--txd)}
+canvas{display:block;width:100%;height:24px}
+
+/* TABLES */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font-size:5.8pt;text-transform:uppercase;letter-spacing:.5px;color:var(--txd);padding:2px 4px;border-bottom:1px solid var(--bd2);text-align:right}
+.tbl th:first-child{text-align:left}
+.tbl td{padding:2.5px 4px;border-bottom:1px solid var(--bd);font-size:7pt;text-align:right;vertical-align:middle}
+.tbl td:first-child{text-align:left;color:var(--txd)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .name{color:var(--tx);font-weight:600}
+.badge{display:inline-block;padding:1px 4px;border-radius:2px;font-size:6pt;font-weight:700}
+.up-b{background:var(--up-bg);color:var(--up)}
+.dn-b{background:var(--dn-bg);color:var(--dn)}
+.neu-b{background:var(--jade-bg);color:var(--jade)}
+.ipc-row td{background:rgba(0,186,170,0.05)}
+.rec-row td{background:rgba(38,204,120,0.07)}
+
+/* STAT TILES */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:4px}
+.stat-tile{background:var(--sf);border:1px solid var(--bd2);border-radius:4px;padding:5px 7px}
+.stat-tile.jade{border-left:3px solid var(--jade)}
+.stat-tile.up{border-left:3px solid var(--up)}
+.stat-tile.dn{border-left:3px solid var(--dn)}
+.stat-tile.gold{border-left:3px solid var(--gold)}
+.stat-tile.amber{border-left:3px solid var(--amber)}
+.stat-tile.purple{border-left:3px solid var(--purple)}
+.st-label{font-size:5.5pt;text-transform:uppercase;letter-spacing:.6px;color:var(--txd)}
+.st-val{font-size:11pt;font-weight:700;line-height:1.1;margin:1px 0}
+.st-desc{font-size:5.8pt;color:var(--txd)}
+
+/* PAGE 2 */
+.page2-inner{padding:7px 10px}
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:5px}
+.feat-card{background:var(--sf);border:1px solid var(--bd2);border-radius:5px;overflow:hidden}
+.feat-head{padding:5px 8px;display:flex;align-items:center;gap:6px}
+.feat-head.pltr{background:linear-gradient(90deg,rgba(167,139,250,0.20),rgba(34,211,238,0.08));border-bottom:2px solid var(--purple)}
+.feat-head.geop{background:var(--amber-bg);border-bottom:2px solid var(--amber)}
+.feat-icon{font-size:14pt;line-height:1;flex-shrink:0}
+.feat-title{font-size:8.5pt;font-weight:700;line-height:1.2}
+.feat-sub{font-size:6pt;color:var(--txd);margin-top:1px}
+.feat-body{padding:6px 8px}
+.feat-row{display:flex;justify-content:space-between;padding:2.5px 0;border-bottom:1px solid var(--bd);font-size:7pt}
+.feat-row:last-child{border-bottom:none}
+.feat-key{color:var(--txd)}
+.feat-val{font-weight:700}
+.feat-note{font-size:6pt;color:var(--txd);margin-top:4px;padding-top:3px;border-top:1px solid var(--bd2);line-height:1.4}
+
+/* NEWS GRID */
+.news-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:5px}
+.news-card{background:var(--sf);border:1px solid var(--bd2);border-radius:4px;padding:5px 7px}
+.nc-tag{font-size:5pt;text-transform:uppercase;letter-spacing:.8px;padding:1px 4px;border-radius:2px;display:inline-block;margin-bottom:3px}
+.tag-dn{background:var(--dn-bg);color:var(--dn)}
+.tag-up{background:var(--up-bg);color:var(--up)}
+.tag-gold{background:var(--gold-bg);color:var(--gold)}
+.tag-jade{background:var(--jade-bg);color:var(--jade)}
+.tag-amber{background:var(--amber-bg);color:var(--amber)}
+.tag-purple{background:var(--purple-bg);color:var(--purple)}
+.tag-cyan{background:var(--cyan-bg);color:var(--cyan)}
+.nc-head{font-size:7.5pt;font-weight:700;line-height:1.25;margin-bottom:3px}
+.nc-body{font-size:6.5pt;color:var(--txd);line-height:1.4}
+
+/* GDP REVISION BANNER */
+.gdp-banner{background:var(--sf);border:1px solid var(--jade);border-radius:4px;padding:5px 8px;margin-bottom:5px;display:flex;align-items:center;gap:10px}
+.gdp-num{font-size:16pt;font-weight:700;color:var(--jade);line-height:1;flex-shrink:0}
+.gdp-body{}
+.gdp-title{font-size:7.5pt;font-weight:700;color:var(--tx)}
+.gdp-desc{font-size:6.5pt;color:var(--txd);margin-top:2px}
+
+/* WATCH BOX */
+.watch-box{background:var(--sf2);border:1px solid var(--bd2);border-radius:4px;padding:5px 8px;display:grid;grid-template-columns:1fr 1fr 1fr}
+.watch-title{font-size:6pt;text-transform:uppercase;letter-spacing:.8px;color:var(--jade);margin-bottom:3px;font-weight:700;grid-column:1/-1;border-bottom:1px solid var(--bd2);padding-bottom:2px}
+.watch-item{font-size:6.5pt;color:var(--txd);padding:1.5px 0;display:flex;align-items:flex-start;gap:3px}
+.watch-dot{color:var(--gold);flex-shrink:0}
+
+.pg-footer{position:absolute;bottom:5px;left:10px;right:10px;display:flex;justify-content:space-between;border-top:1px solid var(--bd);padding-top:3px}
+.pg-foot-txt{font-size:5.5pt;color:var(--txf)}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ PÁGINA 1 ═══════════════════════════════ -->
+<div class="page">
+
+  <div class="mast">
+    <div style="display:flex;align-items:baseline">
+      <span class="mast-title">México Briefing</span>
+      <span class="mast-sub">Mercados · Política · Economía</span>
+      <span class="mast-badge">IA &amp; GEOPOLÍTICA</span>
+    </div>
+    <div class="mast-right">
+      <div class="mast-date">Martes 4 de agosto de 2026</div>
+      <div class="mast-edition">Edición #14 · Semana 32</div>
+    </div>
+  </div>
+
+  <!-- DUAL ALERT: Palantir + Ormuz -->
+  <div class="top-alerts">
+    <div class="alert-card pltr">
+      <div class="ac-icon">🤖</div>
+      <div class="ac-body">
+        <div class="ac-label">Palantir Q2 2026 — "Otherworldly"</div>
+        <div class="ac-val purple">PLTR +27% · Rev. +93% a/a · IA Soberana</div>
+        <div class="ac-detail">$1.94B ingresos (est. $1.8B) · EPS $0.41 (est. $0.33) · Comercial EEUU +149% · Nasdaq +2.1%</div>
+      </div>
+    </div>
+    <div class="alert-card ormuz">
+      <div class="ac-icon">⚓</div>
+      <div class="ac-body">
+        <div class="ac-label">Geopolítica · Estrecho de Ormuz</div>
+        <div class="ac-val amber">Irán–Omán: "Fase Final" del acuerdo</div>
+        <div class="ac-detail">Irán propone desminar Ormuz con países europeos · Trump amenaza con "última oportunidad" · 21% del petróleo mundial en juego</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-bar">
+    <div class="tick-item">
+      <span class="tick-lbl">IPC</span>
+      <span class="tick-val">66,697</span>
+      <span class="tick-chg dn-bg dn">▼ −0.36%</span>
+    </div>
+    <div class="tick-item">
+      <span class="tick-lbl">USD/MXN</span>
+      <span class="tick-val">$17.29</span>
+      <span class="tick-chg up-bg up">Peso ↑ −0.08%</span>
+    </div>
+    <div class="tick-item">
+      <span class="tick-lbl">S&amp;P 500</span>
+      <span class="tick-val">5,930</span>
+      <span class="tick-chg up-bg up">▲ +1.50%</span>
+    </div>
+    <div class="tick-item">
+      <span class="tick-lbl">Nasdaq</span>
+      <span class="tick-val">19,420</span>
+      <span class="tick-chg up-bg up">▲ +2.10%</span>
+    </div>
+    <div class="tick-item">
+      <span class="tick-lbl">Dow Jones</span>
+      <span class="tick-val ★">45,310</span>
+      <span class="tick-chg up-bg up">▲ +1.32% ★RÉC</span>
+    </div>
+    <div class="tick-item">
+      <span class="tick-lbl">Brent</span>
+      <span class="tick-val">$84.50</span>
+      <span class="tick-chg up-bg up">▲ +0.76%</span>
+    </div>
+    <div class="tick-item">
+      <span class="tick-lbl">Oro</span>
+      <span class="tick-val">$4,118</span>
+      <span class="tick-chg up-bg up">▲ +1.70%</span>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- LEFT: FX + COMMODITIES -->
+    <div>
+      <div class="section-hdr">Tipo de Cambio</div>
+
+      <div class="fx-card">
+        <div class="fx-top">
+          <span class="fx-pair">USD / MXN</span>
+          <span>
+            <span class="fx-rate">$17.29</span>
+            <span class="fx-chg up-bg up">Peso ↑</span>
+          </span>
+        </div>
+        <div class="fx-row">
+          <span class="fx-fix">FIX Banxico: $17.3288 · Soporte: $17.25</span>
+          <canvas id="sp1" width="80" height="24"></canvas>
+        </div>
+      </div>
+
+      <div class="fx-card">
+        <div class="fx-top">
+          <span class="fx-pair">EUR / MXN</span>
+          <span>
+            <span class="fx-rate">$18.67</span>
+            <span class="fx-chg up-bg up">Peso ↑ −0.27%</span>
+          </span>
+        </div>
+        <div class="fx-row">
+          <span class="fx-fix">EUR/USD $1.0796 · Rango 18.62–18.75</span>
+          <canvas id="sp2" width="80" height="24"></canvas>
+        </div>
+      </div>
+
+      <div class="fx-card">
+        <div class="fx-top">
+          <span class="fx-pair">EUR / USD</span>
+          <span>
+            <span class="fx-rate">$1.0796</span>
+            <span class="fx-chg dn-bg dn">−0.09%</span>
+          </span>
+        </div>
+        <div class="fx-row">
+          <span class="fx-fix">Soporte 1.0770 · Resistencia 1.0840</span>
+          <canvas id="sp3" width="80" height="24"></canvas>
+        </div>
+      </div>
+
+      <div class="section-hdr" style="margin-top:4px">Commodities</div>
+      <table class="tbl" style="margin-bottom:4px">
+        <thead>
+          <tr><th>Commodity</th><th>Precio</th><th>Cambio</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">🛢 Brent</td>
+            <td>$84.50</td>
+            <td><span class="badge up-b">▲ +0.76%</span></td>
+          </tr>
+          <tr>
+            <td class="name">🛢 WTI</td>
+            <td>$80.90</td>
+            <td><span class="badge up-b">▲ +0.80%</span></td>
+          </tr>
+          <tr>
+            <td class="name">🥇 Oro</td>
+            <td>$4,118</td>
+            <td><span class="badge up-b">▲ +1.70%</span></td>
+          </tr>
+          <tr>
+            <td class="name">🥈 Plata</td>
+            <td>$84.40</td>
+            <td><span class="badge up-b">▲ +1.44%</span></td>
+          </tr>
+          <tr>
+            <td class="name">⛽ Gas Natural</td>
+            <td>$3.24</td>
+            <td><span class="badge up-b">▲ +0.62%</span></td>
+          </tr>
+          <tr>
+            <td class="name">🔶 Cobre</td>
+            <td>$4.81</td>
+            <td><span class="badge up-b">▲ +2.78%</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="stat-grid">
+        <div class="stat-tile purple">
+          <div class="st-label">PLTR hoy</div>
+          <div class="st-val" style="color:var(--purple)">+27%</div>
+          <div class="st-desc">IA soberana impulsa Nasdaq</div>
+        </div>
+        <div class="stat-tile gold">
+          <div class="st-label">Banxico mañana</div>
+          <div class="st-val" style="color:var(--gold)">6 ago</div>
+          <div class="st-desc">Mercado: −25pb → 6.25%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: BOLSAS + ACCIONES -->
+    <div>
+      <div class="section-hdr">Índices Bursátiles</div>
+      <table class="tbl" style="margin-bottom:5px">
+        <thead>
+          <tr><th>Índice</th><th>Nivel</th><th>Día</th><th>Motor</th></tr>
+        </thead>
+        <tbody>
+          <tr class="ipc-row">
+            <td class="name">IPC BMV 🇲🇽</td>
+            <td>66,697</td>
+            <td><span class="badge dn-b">▼ −0.36%</span></td>
+            <td style="font-size:6pt;color:var(--txd)">AMX y WALMEX pesan</td>
+          </tr>
+          <tr class="rec-row">
+            <td class="name">S&amp;P 500 🇺🇸</td>
+            <td>5,930</td>
+            <td><span class="badge up-b">▲ +1.50%</span></td>
+            <td style="font-size:6pt;color:var(--txd)">PLTR+27% · IA boom</td>
+          </tr>
+          <tr class="rec-row">
+            <td class="name">Nasdaq 🇺🇸</td>
+            <td>19,420</td>
+            <td><span class="badge up-b">▲ +2.10%</span></td>
+            <td style="font-size:6pt;color:var(--txd)">Palantir lidera sector IA</td>
+          </tr>
+          <tr class="rec-row">
+            <td class="name">Dow Jones 🇺🇸 ★</td>
+            <td>45,310</td>
+            <td><span class="badge up-b">▲ +1.32%</span></td>
+            <td style="font-size:6pt;color:var(--txd)">Nuevo récord histórico</td>
+          </tr>
+          <tr>
+            <td class="name">DAX 🇩🇪</td>
+            <td>26,150</td>
+            <td><span class="badge up-b">▲ +0.54%</span></td>
+            <td style="font-size:6pt;color:var(--txd)">Consolida récord 26,000+</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-hdr">Acciones México — Mayores Movimientos</div>
+      <table class="tbl" style="margin-bottom:5px">
+        <thead>
+          <tr><th>Emisora</th><th>Precio</th><th>Cambio</th><th>Nota</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">CEMEX CPO</td>
+            <td>$8.42</td>
+            <td><span class="badge up-b">▲ +1.00%</span></td>
+            <td style="font-size:6pt;color:var(--txd)">Líder IPC · Industrial</td>
+          </tr>
+          <tr>
+            <td class="name">GMEXICOB</td>
+            <td>$108.20</td>
+            <td><span class="badge up-b">▲ +0.88%</span></td>
+            <td style="font-size:6pt;color:var(--txd)">Cobre +2.78% impulsa</td>
+          </tr>
+          <tr>
+            <td class="name">PINFRA *</td>
+            <td>$214.30</td>
+            <td><span class="badge up-b">▲ +0.85%</span></td>
+            <td style="font-size:6pt;color:var(--txd)">Infraestructura · déficit bajo</td>
+          </tr>
+          <tr>
+            <td class="name">AMXB</td>
+            <td>$21.35</td>
+            <td><span class="badge dn-b">▼ −0.70%</span></td>
+            <td style="font-size:6pt;color:var(--txd)">Toma de utilidades 5ª sesión</td>
+          </tr>
+          <tr>
+            <td class="name">WALMEX *</td>
+            <td>$49.55</td>
+            <td><span class="badge dn-b">▼ −1.10%</span></td>
+            <td style="font-size:6pt;color:var(--txd)">Flujo sale a defensivas globales</td>
+          </tr>
+          <tr>
+            <td class="name">FEMSAUBD</td>
+            <td>$209.80</td>
+            <td><span class="badge dn-b">▼ −0.69%</span></td>
+            <td style="font-size:6pt;color:var(--txd)">Sigue presión post-2T26</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- GDP REVISION INLINE -->
+      <div style="background:var(--jade-bg);border:1px solid var(--jade);border-radius:4px;padding:4px 8px;margin-bottom:4px">
+        <div style="font-size:5.5pt;text-transform:uppercase;letter-spacing:.6px;color:var(--jade);margin-bottom:2px">Banxico — Encuesta Analistas · PIB 2026 revisado</div>
+        <div style="font-size:7pt;color:var(--tx);line-height:1.35">Analistas elevan expectativa de crecimiento: <strong style="color:var(--jade)">+1.2%</strong> (antes 1.1%). Aún por debajo del piso de Hacienda (1.5%). Principales riesgos: gobernanza (44%), condiciones externas (26%), factores internos (22%).</div>
+      </div>
+
+      <!-- MEDIA TRANSPARENCY -->
+      <div style="background:var(--sf2);border:1px solid var(--bd2);border-radius:4px;padding:4px 8px">
+        <div style="font-size:5.5pt;text-transform:uppercase;letter-spacing:.6px;color:var(--txd);margin-bottom:2px">Sheinbaum · Transparencia en medios</div>
+        <div style="font-size:7pt;color:var(--tx);line-height:1.35">Gobierno decreta obligación de identificar contenidos de <em>opinión</em> vs. <em>información</em> en medios (cortinilla/cintillo). Buenrostro: "paso hacia la transparencia informativa". Críticos: riesgo de censura editorial.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pg-footer">
+    <span class="pg-foot-txt">Fuentes: BMV · CNBC · TheStreet · Reuters · Bloomberg · El Financiero · Investing.com · Heraldo</span>
+    <span class="pg-foot-txt">Página 1 de 2 · Martes 4 Ago 2026</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PÁGINA 2 ═══════════════════════════════ -->
+<div class="page">
+  <div class="mast" style="border-bottom-color:var(--purple)">
+    <div style="display:flex;align-items:baseline">
+      <span class="mast-title" style="color:var(--purple)">México Briefing</span>
+      <span class="mast-sub">Análisis · Noticias · Perspectivas</span>
+    </div>
+    <div class="mast-right">
+      <div class="mast-date">Martes 4 de agosto de 2026</div>
+      <div class="mast-edition">IA Soberana · Ormuz · Banxico mañana · Pág. 2</div>
+    </div>
+  </div>
+
+  <div class="page2-inner">
+
+    <!-- GDP BANNER -->
+    <div class="gdp-banner">
+      <div class="gdp-num">+1.2%</div>
+      <div class="gdp-body">
+        <div class="gdp-title">PIB México 2026 — Analistas revisan al alza (1.1% → 1.2%)</div>
+        <div class="gdp-desc">Encuesta Banxico · Confirmación del PIB 2T26 (+2.1% anual) mejora sentimiento · Hacienda mantiene proyección 1.5%–2.0% · Riesgo principal: gobernanza e incertidumbre en T-MEC · Próxima revisión: septiembre post-Banxico</div>
+      </div>
+    </div>
+
+    <!-- FEATURED: Palantir + Ormuz -->
+    <div class="featured-grid">
+
+      <!-- Palantir -->
+      <div class="feat-card">
+        <div class="feat-head pltr">
+          <div class="feat-icon">🤖</div>
+          <div>
+            <div class="feat-title">Palantir Q2 2026 — Cuarto "Otherworldly"</div>
+            <div class="feat-sub">PLTR +27% · Nasdaq +2.1% · IA Soberana define nuevo sector</div>
+          </div>
+        </div>
+        <div class="feat-body">
+          <div class="feat-row">
+            <span class="feat-key">Ingresos Q2</span>
+            <span class="feat-val" style="color:var(--purple)">$1.94B <small style="color:var(--txd);font-weight:400">(+93% a/a · est. $1.8B)</small></span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-key">EPS</span>
+            <span class="feat-val" style="color:var(--purple)">$0.41 <small style="color:var(--txd);font-weight:400">(est. $0.33 · +24% surprise)</small></span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-key">Comercial EEUU</span>
+            <span class="feat-val" style="color:var(--up)">$764M <small style="color:var(--txd);font-weight:400">(+149% a/a · récord)</small></span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-key">Gobierno</span>
+            <span class="feat-val">$809M <small style="color:var(--txd);font-weight:400">(+90% a/a)</small></span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-key">Guidance FY26</span>
+            <span class="feat-val" style="color:var(--up)">$8.16B <small style="color:var(--txd);font-weight:400">(antes $7.65B)</small></span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-key">CEO Alex Karp</span>
+            <span class="feat-val">"Este trimestre fue de otro mundo"</span>
+          </div>
+          <div class="feat-note">🇲🇽 Impacto México: Palantir tiene contratos con SEDENA y CFE para IA gubernamental. El boom de IA soberana abre ventana para México en datos, defensa e infraestructura crítica. Nearshoring digital se acelera.</div>
+        </div>
+      </div>
+
+      <!-- Ormuz -->
+      <div class="feat-card">
+        <div class="feat-head geop">
+          <div class="feat-icon">⚓</div>
+          <div>
+            <div class="feat-title">Ormuz en "Fase Final" — ¿Alivio para el petróleo?</div>
+            <div class="feat-sub">Irán–Omán ultiman acuerdo · Desminar con Europa · Trump amenaza de nuevo</div>
+          </div>
+        </div>
+        <div class="feat-body">
+          <div class="feat-row">
+            <span class="feat-key">Estado actual</span>
+            <span class="feat-val" style="color:var(--amber)">Negociación en "etapa final"</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-key">Propuesta Irán</span>
+            <span class="feat-val">Países europeos desminan Ormuz</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-key">Duración acuerdo</span>
+            <span class="feat-val">Temporal: 1–3 meses bajo control Irán</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-key">Trump retórica</span>
+            <span class="feat-val" style="color:var(--dn)">"Última oportunidad antes de decapitación"</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-key">Brent rebote</span>
+            <span class="feat-val">$83.86 → $84.50 (+0.76%) hoy</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-key">Volumen Ormuz</span>
+            <span class="feat-val">~21% del petróleo mundial</span>
+          </div>
+          <div class="feat-note">⚠ El acuerdo temporal Irán-Omán podría reducir prima de riesgo geopolítico en $5–8/barril. Para México: cada −$5 Brent = ahorro ~$400M/año en importaciones de gasolina y plásticos.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEWS GRID -->
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="nc-tag tag-up">Wall Street · Récord</div>
+        <div class="nc-head">Dow Jones alcanza nuevo récord histórico en 45,310 pts</div>
+        <div class="nc-body">El Dow Jones supera por primera vez 45,300 pts impulsado por el rally de IA (PLTR +27%), datos de manufactura mejores de lo esperado y optimismo geopolítico. S&P 500 +1.5%, Nasdaq +2.1%.</div>
+      </div>
+
+      <div class="news-card">
+        <div class="nc-tag tag-jade">Cobre · Minería</div>
+        <div class="nc-head">Cobre sube +2.78% — Grupo México lidera ganancias en IPC</div>
+        <div class="nc-body">El cobre alcanza $4.81/lb (+2.78%) impulsado por expectativas de demanda china y el auge de infraestructura IA. Grupo México (GMEXICOB) avanza +0.88% y CEMEX +1.0% lideran la bolsa local.</div>
+      </div>
+
+      <div class="news-card">
+        <div class="nc-tag tag-amber">México · Política</div>
+        <div class="nc-head">Decreto de transparencia en medios: distinguir opinión vs. información</div>
+        <div class="nc-body">Secretaría Anticorrupción (Buenrostro) decreta obligación de etiquetar contenido editorial en medios. Gobierno: "avance en transparencia". Críticos alertan sobre posible uso político y riesgo para libertad de prensa.</div>
+      </div>
+
+      <div class="news-card">
+        <div class="nc-tag tag-gold">Banxico · Mañana</div>
+        <div class="nc-head">Mercado espera recorte de 25pb: Banxico baja a 6.25% mañana</div>
+        <div class="nc-body">Con inflación en 3.10% y el PIB 2T26 confirmado en +2.1%, el consenso del mercado anticipa el primer recorte desde mayo: 6.50% → 6.25%. El peso se aprecia. Dato clave: INPC julio (viernes).</div>
+      </div>
+
+      <div class="news-card">
+        <div class="nc-tag tag-purple">IA · Nearshoring</div>
+        <div class="nc-head">Auge IA soberana abre oportunidades en México: gobierno y defensa</div>
+        <div class="nc-body">El boom de Palantir (+93% rev.) refleja demanda global de IA gubernamental. México tiene contratos activos con Palantir en SEDENA y CFE. Nearshoring digital en Monterrey y Querétaro capta flujos de AWS y PLTR.</div>
+      </div>
+
+      <div class="news-card">
+        <div class="nc-tag tag-cyan">Confianza · Consumidor</div>
+        <div class="nc-head">ENCO julio: confianza del consumidor sigue recuperándose desde mínimos</div>
+        <div class="nc-body">El índice de junio (43.8 pts) logró primera mejora tras 13 meses de descenso. Datos de julio (publicados hoy martes) revelarán si el repunte del PIB 2T26 y la caída del petróleo consolidan la recuperación del optimismo.</div>
+      </div>
+    </div>
+
+    <!-- WATCH BOX -->
+    <div class="watch-box">
+      <div class="watch-title">📡 En el Radar — Esta Semana</div>
+      <div>
+        <div class="watch-item"><span class="watch-dot">★</span><span><strong>Mañana 6 ago:</strong> Banxico — ¿−25pb? Primer recorte del 2H26</span></div>
+        <div class="watch-item"><span class="watch-dot">◆</span><span><strong>Vie 7 ago:</strong> NFP julio EE.UU. — umbral 100K empleos</span></div>
+        <div class="watch-item"><span class="watch-dot">◆</span><span><strong>Vie 7 ago:</strong> INPC julio México — ¿<3.05%?</span></div>
+      </div>
+      <div>
+        <div class="watch-item"><span class="watch-dot">◆</span><span><strong>Ormuz:</strong> Cierre de acuerdo Irán-Omán · baja prima riesgo</span></div>
+        <div class="watch-item"><span class="watch-dot">◆</span><span><strong>Ago:</strong> Resultados Bimbo, Banorte 2T26</span></div>
+        <div class="watch-item"><span class="watch-dot">◆</span><span><strong>PLTR:</strong> ¿Entrada de Palantir en más contratos México?</span></div>
+      </div>
+      <div>
+        <div class="watch-item"><span class="watch-dot">◆</span><span><strong>Sep:</strong> 4ª Ronda T-MEC Washington · Ebrard–USTR</span></div>
+        <div class="watch-item"><span class="watch-dot">◆</span><span><strong>Sep 1:</strong> Apple — nuevo CEO Ternus, era post-Cook</span></div>
+        <div class="watch-item"><span class="watch-dot">◆</span><span><strong>Kia:</strong> Planta EV Monterrey $649M — actualización</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pg-footer">
+    <span class="pg-foot-txt">Este documento es informativo. No constituye asesoría financiera ni recomendación de inversión.</span>
+    <span class="pg-foot-txt">Página 2 de 2 · México Briefing #14 · 4 Ago 2026</span>
+  </div>
+</div>
+
+<script>
+function spark(id,data,col){
+  const c=document.getElementById(id);if(!c)return;
+  const dpr=window.devicePixelRatio||1,w=c.offsetWidth||100,h=24;
+  c.width=w*dpr;c.height=h*dpr;
+  const x=c.getContext('2d');x.scale(dpr,dpr);
+  const mn=Math.min(...data),mx=Math.max(...data),rng=mx-mn||1;
+  const pts=data.map((v,i)=>({x:(i/(data.length-1))*w,y:h-((v-mn)/rng)*(h-5)-2}));
+  const grd=x.createLinearGradient(0,0,0,h);
+  grd.addColorStop(0,col+'55');grd.addColorStop(1,col+'00');
+  x.beginPath();x.moveTo(pts[0].x,h);
+  pts.forEach(p=>x.lineTo(p.x,p.y));
+  x.lineTo(pts[pts.length-1].x,h);x.closePath();
+  x.fillStyle=grd;x.fill();
+  x.beginPath();x.moveTo(pts[0].x,pts[0].y);
+  pts.forEach(p=>x.lineTo(p.x,p.y));
+  x.strokeStyle=col;x.lineWidth=1.5;x.stroke();
+  const lp=pts[pts.length-1];
+  x.beginPath();x.arc(lp.x,lp.y,2.5,0,Math.PI*2);
+  x.fillStyle=col;x.fill();
+}
+window.addEventListener('load',()=>{
+  // USD/MXN: peso se aprecia (valor baja)
+  spark('sp1',[17.51,17.46,17.42,17.38,17.35,17.32,17.29],'#26CC78');
+  // EUR/MXN: también peso se aprecia
+  spark('sp2',[18.95,18.88,18.82,18.79,18.74,18.70,18.67],'#26CC78');
+  // EUR/USD: estable con ligera baja
+  spark('sp3',[1.085,1.083,1.082,1.081,1.081,1.080,1.080],'#6B82A0');
+});
+</script>
+</body>
+</html>
